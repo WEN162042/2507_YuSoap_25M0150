@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>YuShop | 會員註冊</title>
+
+    <!-- Favicon -->
+    <link href="img/favicon/apple-touch-icon.png" rel="apple-touch-icon" sizes="180x180" />
+    <link type="image/png" href="img/favicon/favicon-32x32.png" rel="icon" sizes="32x32" />
+    <link type="image/png" href="img/favicon/favicon-16x16.png" rel="icon" sizes="16x16" />
+    <link type="image/x-icon" href="img/favicon/favicon.ico" rel="icon" sizes="16x16" />
+
+    <!-- Swiper -->
+    <link rel="stylesheet" href="css/swiper-bundle.min.css" />
+
+    <!-- Tailwind CSS -->
+    <link rel="stylesheet" href="css/oz-tailwind.css" />
+    <link rel="stylesheet" href="css/oz-wmy.css" />
+
+    <!-- Sweetalert2 -->
+    <link rel="stylesheet" href="css/sweetalert2.min.css" />
+  </head>
+  <body>
+    <div id="preloader" class="preloader fixed z-50 left-0 top-0 right-0 bottom-0 bg-white flex justify-center items-center">
+      <div class="loader"></div>
+    </div>
+
+    <header class="fixed top-0 left-0 w-full z-50 py-2 bg-sage-green shadow-sm/20">
+      <div class="container relative mx-auto flex justify-between items-center w-full h-full px-3 md:px-5 lg:px-35" x-data="{ showMenu: false } ">
+        <a class="logo block text-center w-1/2 md:w-1/5" href="index.html"><img class="w-40" src="img/Logo.png" alt="" /></a>
+
+        <!-- navMenu button -->
+        <div @click="showMenu = !showMenu" class="block ml-0 sm:ml-2 border border-turf-green text-turf-green hover:bg-white/50 cursor-pointer lg:hidden order-last">
+          <span class="flex items-center justify-center w-10 h-10 text-2xl"><i class="bi bi-list"></i></span>
+        </div>
+
+        <div class="justify-center items-start lg:items-center hidden w-full h-auto lg:relative lg:flex" :class="{'flex absolute z-50 left-0 top-[50px] bg-white/90 backdrop-blur-lg shadow-xl shadow-gray-500/20 rounded-b-3xl': showMenu, 'hidden': !showMenu }">
+          <nav class="flex flex-col justify-center lg:justify-end items-start lg:items-center w-full lg:flex-row justify-items-stretch sm:justity-center sm:items-center pb-5 lg:pb-0">
+            <ul class="nav w-full flex flex-wrap tracking-wider lg:justify-end lg:items-center gap-3 p-3 lg:p-0">
+              <li class="relative lg:w-auto w-full">
+                <a href="products.html" class="block p-3 text-dark-brown hover:text-sage-green md:hover:text-white">線上購物</a>
+              </li>
+              <li class="relative lg:w-auto w-full">
+                <a href="blog.html" class="block p-3 text-dark-brown hover:text-sage-green md:hover:text-white">手作生活筆記</a>
+              </li>
+              <li class="relative lg:w-auto w-full">
+                <a href="contact.html" class="block p-3 text-dark-brown hover:text-sage-green md:hover:text-white">聯絡我們</a>
+              </li>
+              <li class="relative w-auto pt-3 lg:p-0">
+                <button href="#" class="loginBtn cursor-pointer px-4 py-1 rounded-full text-white bg-turf-green transition delay-150 duration-100 ease-in-out hover:brightness-85 flex items-center"><i class="flex items-center pr-2 fi fi-sr-user"></i>登入/註冊</button>
+              </li>
+              <li class="relative pt-3 lg:p-0">
+                <a href="shop-cart.html" class="cursor-pointer px-4 py-1 rounded-full text-white bg-turf-green transition delay-150 duration-100 ease-in-out hover:brightness-85 flex items-center"><i class="flex items-center pr-2 fi fi-rr-shopping-cart"></i>購物車</a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section class="container mx-auto mt-20 lg:mt-30 mb-10 px-3 md:px-5 lg:px-35">
+        <ul class="flex items-center gap-2">
+          <li class="flex items-center">
+            <a href="index.html" class="text-kale-green hover:text-sage-green hover:underline">首頁</a>
+          </li>
+          <li class="flex items-center before:content-['/'] before:px-2 before:text-sage-green">
+            <span class="text-sage-green">會員註冊</span>
+          </li>
+        </ul>
+      </section>
+
+      <section class="container mx-auto mb-10 px-3 md:px-5 lg:px-35">
+        <div class="w-full flex flex-wrap lg:flex-row rounded-3xl">
+          <div class="w-full my-auto xl:w-1/2 pb-10 lg:pb-0">
+            <img class="md:w-100 mx-auto object-contain" src="img/draw-3.png" alt="" />
+          </div>
+          <div class="w-full xl:w-1/2 lg:pl-20">
+            <div class="bg-amber-50 p-5 md:px-20 flex flex-col items-center justify-center basis-3/4 lg:basis-3/5 rounded-3xl">
+              <h2 class="pb-5 text-xl text-turf-green text-center">填寫資料</h2>
+              <p class="text-gray-400 text-center text-pretty pb-3">已有帳號，<a class="loginBtn text-turf-green font-semibold hover:brightness-80" href="">馬上登入</a>！</p>
+              <form id="create" class="flex flex-col items-center" name="create" method="post">
+                <div class="flex flex-wrap w-fit">
+                  <input class="w-full p-1 border-1 border-sage-green rounded-full pl-3 bg-white focus:outline-turf-green placeholder:opacity-50 mb-5" type="text" id="name" autocomplete="off" required placeholder="姓名" />
+                  <div class="w-full flex flex-col md:flex-row items-center mb-5 gap-5">
+                    <div class="w-full md:w-1/3 flex justify-center">
+                      <input id="female" class="peer/female form-radio border-gray-300 text-sky-400 focus:ring-sky-400 mr-1" type="radio" name="status" checked="" />
+                      <label class="font-medium peer-checked/female:text-sky-500" for="female">女性</label>
+                      <input id="male" class="peer/male form-radio border-gray-300 text-sky-400 focus:ring-sky-400 ml-3 mr-1" type="radio" name="status" />
+                      <label class="font-medium peer-checked/male:text-sky-500" for="male">男性</label>
+                    </div>
+                    <div class="w-full md:w-2/3 relative">
+                      <span class="absolute left-3 top-1/2 -translate-y-1/2 text-gray-300"> 生日</span>
+                      <input class="w-full 1 pl-15 p-1 border border-sage-green rounded-full bg-white focus:outline-none focus:ring-2 focus:ring-turf-green placeholder:opacity-50" type="date" id="start" name="birth-start" value="2025-01-01" min="1950-01-01" max="2050-12-31" placeholder="選擇生日" />
+                    </div>
+                  </div>
+                  <input class="w-full p-1 border-1 border-sage-green rounded-full pl-3 bg-white focus:outline-turf-green placeholder:opacity-50 mb-5" type="tel" id="phone" name="phone" placeholder="電話" required />
+                  <input class="w-full p-1 border-1 border-sage-green rounded-full pl-3 bg-white focus:outline-turf-green placeholder:opacity-50 mb-5" type="email" id="email" name="email" required placeholder="Email" />
+
+                  <div class="relative w-full mb-5 flex flex-col md:flex-row items-center gap-5">
+                    <input class="basis-1/3 w-full p-1 border-1 border-sage-green rounded-full pl-3 bg-white focus:outline-turf-green placeholder:opacity-50" type="address" id="address" name="address" required placeholder="郵遞區號" />
+                    <div class="basis-2/3 w-full">
+                      <select name="country_id" id="country_id" class="w-full pl-3 p-1 bg-gray-400 text-white rounded-3xl focus:outline-none focus:ring-2 focus:ring-sage-green">
+                        <option value="" selected disabled>-- 請選擇國家 --</option>
+                        <option value="1">Afghanistan</option>
+                        <option value="206" selected="selected">台灣</option>
+                      </select>
+                    </div>
+                  </div>
+                  <select name="country_id" id="country_id" class="w-full pl-3 p-1 bg-gray-400 text-white rounded-3xl focus:outline-none focus:ring-2 focus:ring-sage-green mb-5">
+                    <option value="" selected disabled>-- 請選擇縣市 --</option>
+                    <option value="">桃園市</option>
+                    <option value="">新竹市</option>
+                  </select>
+                  <input class="w-full p-1 border-1 border-sage-green rounded-full pl-3 bg-white focus:outline-turf-green placeholder:opacity-50 mb-5" type="text" id="address2" name="address" required placeholder="地址" />
+
+                  <input type="password" class="w-full p-1 border-1 border-sage-green rounded-full pl-3 bg-white focus:outline-turf-green placeholder:opacity-50 mb-5" id="password" name="customer[password]" placeholder="設定密碼" pattern=".{6,}" required="" />
+
+                  <input type="password" class="w-full p-1 border-1 border-sage-green rounded-full pl-3 bg-white focus:outline-turf-green placeholder:opacity-50 mb-5" id="repeat-password" name="customer[password_confirmation]" placeholder="再次輸入密碼" required= />
+                </div>
+                <div class="text-gray-400 text-center text-pretty mb-5">
+                  <input type="checkbox" name="agree" value="1" />
+                  <button id="showTerms-1" class="text-turf-green hover:font-semibold hover:brightness-80" href="#">YUSOAP註冊協議</button>及<button id="showTerms-2" class="text-turf-green hover:font-semibold hover:brightness-80">版權聲明</button>
+                </div>
+                <div class="order-1 md:order-2 w-full md:w-fit text-center py-2 transition delay-150 duration-300 ease-in-out hover:brightness-85 hover:scale-110">
+                  <button class="cursor-pointer w-full text-white py-2 px-4 rounded-full bg-turf-green flex items-center justify-center">確認送出</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="relative">
+      <div class="bg-kale-green pt-13 w-full h-full bg-cover bg-[url(../img/SVG/footer-leaf.svg)] bg-position-[center_top_4rem] bg-no-repeat 2xl:bg-position-[center_top_3rem] px-3 md:px-5">
+        <div class="absolute inset-0 bg-linear-to-t from-kale-green/70 to-transparent"></div>
+        <div class="container relative mx-auto flex flex-col justify-center items-center gap-2 pb-5">
+          <img class="w-50" src="img/Logo.png" alt="YuShop|手工肥皂" />
+          <span class="flex items-center my-5 gap-3">
+            <button class="cursor-pointer text-white transition delay-150 duration-100 ease-in-out hover:text-sage-green flex items-center justify-center">
+              <a href="https://www.facebook.com/profile.php?id=100078377745229#">
+                <i class="text-3xl fi fi-brands-facebook"></i>
+              </a>
+            </button>
+            <button class="cursor-pointer text-white transition delay-150 duration-100 ease-in-out hover:text-sage-green flex items-center justify-center">
+              <a href="#">
+                <i class="text-3xl fi fi-brands-line"></i>
+              </a>
+            </button>
+            <button id="copyPhoneNumberBtn" data-phone-number="0932157002" class="cursor-pointer text-white transition delay-150 duration-100 ease-in-out hover:text-sage-green flex items-center justify-center">
+              <i class="text-3xl fi fi-sr-circle-phone-flip"></i>
+            </button>
+          </span>
+          <div class="w-full text-center border-t-1 border-sage-green flex flex-col sm:flex-row justify-between gap-2">
+            <p class="text-sm mt-3 text-white">COPYRIGHT © 2025 YuSoap-天然手工皂　All rights reserved.</p>
+            <a class="text-sm sm:mt-3 text-white" class="" href="https://www.ozchamp.com/"><p>Web Designed by OZCHAMP.</p></a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <a href="#" id="scroll" style="display: none"><span></span></a>
+
+    <!-- alpine.js -->
+    <script src="js/alpinejs3.12.3.js"></script>
+
+    <!-- jquery.js -->
+    <script src="js/jquery.js"></script>
+
+    <!-- main -->
+    <script src="js/main.js"></script>
+
+    <!-- Sweetalert2 -->
+    <script src="js/sweetalert2.all.min.js"></script>
+    <script>
+      // showTerms-1
+      document.getElementById("showTerms-1").addEventListener("click", function () {
+        Swal.fire({
+          title: "註冊協議",
+          html: `
+        <div style="text-align: left; max-height: 300px; overflow-y: auto">
+        <div style="padding:0px 25px">
+          <p style="color:#55BF6A; font-size:17px; margin-bottom: 20px;">非常歡迎您光臨YuSoap網站，為了讓您能夠安心的使用本網站的各項服務與資訊，特此向您說明本網站的隱私權保護政策，以保障您的權益，請您詳閱下列內容：</p>
+          <dl style="margin-bottom: 40px">
+            <dt style="margin-bottom: 5px; font-size: 20px; color: #6b8865; font-weight: 700">壹. 個人資料之安全</dt>
+            <dd>
+              <p>保護會員的個人隱私是我們重要的經營理念，在未經會員同意之下，我們絕不會將會員的個人資料提供予任何與本網站服務無關之第三人。會員應妥善保密自己的網路密碼及個人資料，不要將任何個人資料，尤其是網路密碼提供給任何人。在使用完本網站所提供的各項服務功能後，務必記得登出帳戶，若是與他人共享電腦或使用公共電腦，切記要關閉瀏覽器視窗。</p>
+            </dd>
+          </dl>
+          <dl style="margin-bottom: 40px">
+            <dt style="margin-bottom: 5px; font-size: 20px; color: #6b8865; font-weight: 700"></dt>
+            <dd>
+              <p>
+                為保障會員的隱私及安全，YuSoap會員帳號資料會用密碼保護。會員對於其個人資料，有查詢及閱覽、補充或更正、停止電腦處理及利用、刪除等需求時，可於會員中心進行修改，或與客服中心聯絡，我們將迅速進行處理。</p>
+            </dd>
+          </dl>
+          <dl style="margin-bottom: 40px">
+            <dt style="margin-bottom: 5px; font-size: 20px; color: #6b8865; font-weight: 700">參. 網站對外的相關連結</dt>
+            <dd>本網站的網頁提供其他網站的網路連結，您也可經由本網站所提供的連結，點選進入其他網站。但該連結網站不適用本網站的隱私權保護政策，您必須參考該連結網站中的隱私權保護政策。</dd>
+          </dl>
+          <dl style="margin-bottom: 40px">
+            <dt style="margin-bottom: 5px; font-size: 20px; color: #6b8865; font-weight: 700">肆. 蒐集、處理及利用個人資料聲明事項</dt>
+            <dd>
+              <p><strong>YuSoap（以下稱本公司）依據個人資料保護法（以下稱個資法）規定，向您告知下列事項：</strong></p>
+              <br>
+              <div style="margin-left: 20px">
+                <p>二.蒐集個人資料之類別：姓名、生日、聯絡方式等</p>
+              <p>本公司將自您以任何方式（<span style="color:#99468A;">包括但不限於親洽本公司櫃檯、致電本公司、傳真、透過本公司網站加入會員或線上訂購等</span>）聯繫本公司時起，至您要求本公司刪除您的個人資料止，<span style="color:#99468A;">為提供本服務以及通知您與本服務相關優惠活動之目的（以下稱蒐集目的）</span>保留及利用您所提供之個人資料。本公司就您的個人資料之利用區域限於台灣地區。</p>
+              <p>三.您可依個人資料保護法，就您的個人資料向本公司為下列主張或請求：</p>
+              <p> (a) 請求閱覽或請求製給複製本。依個資法規定本公司得酌收必要成本費用。</p>
+              <p>(b) 請求補充或更正。</p>
+              <p>(c) 請求停止蒐集、處理及利用。</p>
+              <p>(d) 請求刪除。</p>
+              <br>
+              <p>四.如您提供之個人資料包含第三人之個人資料時，您確認該第三人已知悉本聲明第三條之權利， 並擔保您已取得第三人之同意得授權本公司依據本聲明第一條之蒐集目的使用該第三人之個人資料。</p>
+              <br>
+              <p>五.如因您不提供、請求停止蒐集、處理、利用或請求刪除您的個人資料，導致本公司無法提供本服務之一部或全部而對您的權益產生減損時，本公司不負任何賠償責任。</p>
+              <br>
+              <p>六.若您所提供之個人資料，經檢舉或本公司發現不足以確認您或第三人之身分真實性或有其他個人資料冒用、盜用、資料不實等情形，本公司有權暫時停止提供對您或該第三人的服務，若有不便之處敬請見諒！</p>
+              </div>
+            </dd>
+          </dl>
+          <dl style="margin-bottom: 40px">
+            <dt style="margin-bottom: 5px; font-size: 20px; color: #6b8865; font-weight: 700">伍. 隱私權保護政策修訂</dt>
+            <dd>本網站隱私權保護政策將因應需求隨時進行修正，修正後的條款將公告於網站上。</dd>
+          </dl>
+        </div>
+      </div>
+      `,
+          icon: "info",
+          iconColor: "#c6d1c0",
+          confirmButtonText: "我已閱讀並同意",
+          confirmButtonColor: "#6b8865",
+          width: "600px",
+          customClass: {
+            popup: "rounded-2xl"
+          }
+        });
+      });
+
+      // showTerms-2
+      document.getElementById("showTerms-2").addEventListener("click", function () {
+        Swal.fire({
+          title: "服務條款",
+          html: `
+        <div style="text-align: left; max-height: 300px; overflow-y: auto">
+        <div style="padding:0px 25px">
+          <dl style="margin-bottom: 40px">
+            <dt style="margin-bottom: 5px; font-size: 20px; color: #6b8865; font-weight: 700">壹. 認知與接受條款</dt>
+            <dd>
+              <p>YuSoap依據本服務條款提供網站會員各項網站服務 (以下簡稱「本服務」)。當您完成本公司網站會員註冊手續、或開始使用本服務時，即表示已閱讀、瞭解並同意接受本服務條款之所有內容，並完全接受本服務現有與未來衍生的服務項目及內容。本公司有權於任何時間修改或變更本服務條款之內容，修改後的服務條款內容將公佈於網站上，本公司將不會個別通知會員，建議您隨時注意該等修改或變更。您於任何修改或變更後繼續使用本服務時，視為您已閱讀、瞭解並同意接受該等修改或變更。若您不同意上述的服務條款修訂或更新方式，或不接受本服務條款的其他任一約定，您應立即停止使用本服務。</p>
+              <br />
+              <p>若您為未滿二十歲之未成年人，應於您的家長（或監護人）閱讀、瞭解並同意本服務條款之所有內容及其後修改變更後，方得註冊為會員，並使用本網站所提供的服務。當您使用或繼續使用本服務時，即推定您的家長（或監護人）已閱讀、瞭解並同意接受本服務條歀之所有內容及其後修改變更。</p>
+            </dd>
+          </dl>
+          <dl style="margin-bottom: 40px">
+            <dt style="margin-bottom: 5px; font-size: 20px; color: #6b8865; font-weight: 700">貳. 會員的註冊義務</dt>
+            <dd>
+              <p>
+                為了能使用本服務，會員同意以下事項：<br />
+                依本服務註冊表之提示提供會員本人正確、最新的資料，且不得以第三人之名義註冊為會員。每位會員僅能註冊登錄一個帳號，不可重覆註冊登錄。
+              </p>
+              <br />
+              <p>維持並更新您個人資料，確保其為正確、最新及完整。若您提供任何錯誤、不實或不完整的資料，本公司有權暫停或終止您的帳號，並拒絕您使用本服務之全部或一部份。</p>
+            </dd>
+          </dl>
+          <dl style="margin-bottom: 40px">
+            <dt style="margin-bottom: 5px; font-size: 20px; color: #6b8865; font-weight: 700">參. 會員帳號、密碼及安全</dt>
+            <dd>完成本服務的登記程序之後，會員將取得一個特定之密碼及會員帳號，維持密碼及帳號之機密安全是會員的責任。任何依照規定方法輸入會員帳號及密碼與登入資料一致時，無論是否由本人親自輸入，均將推定為會員本人所使用，利用該密碼及帳號所進行的一切行動，會員本人應負完全責任。請注意，若您的密碼或帳號遭到盜用或有其他任何安全問題發生時，請立即通知本公司。</dd>
+          </dl>
+          <dl style="margin-bottom: 40px">
+            <dt style="margin-bottom: 5px; font-size: 20px; color: #6b8865; font-weight: 700">肆. 隱私權保護政策</dt>
+            <dd>關於會員的註冊以及其他特定資料依本網站「<strong>隱私權保護政策</strong>」受到保護與規範。</dd>
+          </dl>
+          <dl style="margin-bottom: 40px">
+            <dt style="margin-bottom: 5px; font-size: 20px; color: #6b8865; font-weight: 700">伍. 智慧財產權的保護</dt>
+            <dd>本服務所使用之軟體或程式、網站上所有內容，包括但不限於著作、圖片、檔案、資訊、資料、網站架構、網站畫面的安排、網頁設計，除本公司有特別明示外，皆由本公司或其他權利人依法擁有其智慧財產權，包括但不限於商標權、專利權、著作權、營業秘密與專有技術等。任何人不得擅自使用、修改、重製、公開播送、改作、散布、發行、公開發表、進行還原工程、解編或反向組譯。若您欲引用或轉載前述軟體、程式或網站內容，除明確為法律所許可者外，必須依法取得本公司或其他權利人的事前書面同意。尊重智慧財產權是您應盡的義務，如有違反，您應對本公司負損害賠償責任。</dd>
+          </dl>
+          <dl style="margin-bottom: 40px">
+            <dt style="margin-bottom: 5px; font-size: 20px; color: #6b8865; font-weight: 700">陸. 特別授權事項</dt>
+            <dd>因使用本服務所提供之網路交易或活動，可能須透過宅配或貨運業者始能完成貨品(或贈品等)之配送或取回，因此，會員同意並授權本公司得視該次網路交易或活動之需求及目的，將由會員所提供且為配送所必要之個人資料(如收件人姓名、配送地址、連絡電話等)，提供予宅配貨運業者及相關配合之廠商，以利完成該次貨品(或贈品等)之配送、取回。</dd>
+          </dl>
+          <dl style="margin-bottom: 40px">
+            <dt style="margin-bottom: 5px; font-size: 20px; color: #6b8865; font-weight: 700">柒. 服務中止及免責聲明</dt>
+            <dd>
+              本公司將依一般合理之技術及方式，維護本網站及服務的正常運作。但於以下各項情況時，本公司有權可以停止、中斷提供本服務的全部或一部份，且不負事先通知您的義務，本公司對使用者任何直接或間接的損害，均不負任何賠償或補償的義務：<br />
+              對本服務相關軟硬體設備進行搬遷、更換、升級、保養或維修時<br />
+              發生突發性之電子通信設備故障時<br />
+              本公司網站申請之電子通信服務被停止，無法提供服務時<br />
+              由於天災等不可抗力之因素或其他不可歸責於本公司之事由致使本網站無法提供服務時<br />
+              使用者有任何違反政府法令或本服務條款的情形時
+            </dd>
+          </dl>
+          <dl style="margin-bottom: 40px">
+            <dt style="margin-bottom: 5px; font-size: 20px; color: #6b8865; font-weight: 700">捌. 拒絕或終止會員身份</dt>
+            <dd>您使用本服務時，若有（包括但不限於）提供錯誤或不實資料進行會員登錄、大量下單經本公司確認或本公司認定異常交易、非因物品本身瑕疵惡意退貨、或其他違反本服務條款內容、本網站設立宗旨及會員服務精神的情事時，本公司均得逕行暫停、終止或拒絕提供會員及其他一切服務。您在此承諾，不論因任何原因，當本公司依本服務條款終止您的會員服務時，均無須得到您的同意，且本公司對您或任何第三人均不負任何義務或責任。</dd>
+          </dl>
+          <dl style="margin-bottom: 40px">
+            <dt style="margin-bottom: 5px; font-size: 20px; color: #6b8865; font-weight: 700">玖. 通知之義務</dt>
+            <dd>本公司為通知您相關的訊息，將會以您註冊時於本網站所留存的電子郵件位址為送達方式。您的電子郵件位址若有異動，您應立即登錄本網站進行資料更新，日後並應隨時維護您的電子郵件位址及其他個人資料的正確性、即時性及完整性。若因您留存的電子郵件位址錯誤、過期或其他非可歸責本公司的原因，致本公司送達的訊息無法接受，仍視為本公司業已完成該通知的送達。</dd>
+          </dl>
+          <dl style="margin-bottom: 40px">
+            <dt style="margin-bottom: 5px; font-size: 20px; color: #6b8865; font-weight: 700">拾. 準據法與管轄法院</dt>
+            <dd>本服務條款之解釋與適用，以及與本服務條款有關或會員與本公司間因交易行為而產生之爭議或糾紛，應依照中華民國法律予以處理，並以台灣台北地方法院為第一審管轄法院，但若法律對於管轄法院另有強制規定者，仍應依其規定。</dd>
+          </dl>
+        </div>
+      </div>
+      `,
+          icon: "info",
+          iconColor: "#c6d1c0",
+          confirmButtonText: "我已閱讀並同意",
+          confirmButtonColor: "#6b8865",
+          width: "600px",
+          customClass: {
+            popup: "rounded-2xl"
+          }
+        });
+      });
+    </script>
+
+    <!-- copy number  -->
+    <script>
+      document.getElementById("copyPhoneNumberBtn").addEventListener("click", function () {
+        const phoneNumber = this.getAttribute("data-phone-number");
+
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard
+            .writeText(phoneNumber)
+            .then(() => {
+              Swal.fire({
+                title: "成功",
+                text: "電話號碼已複製！",
+                icon: "success",
+                iconColor: "#c6d1c0",
+                confirmButtonText: "確定",
+                confirmButtonColor: "#6b8865",
+                showConfirmButton: true
+              });
+            })
+            .catch((err) => {
+              console.error("複製失敗: ", err);
+              Swal.fire({
+                title: "錯誤",
+                text: "複製失敗，請再試一次。",
+                icon: "error",
+                iconColor: "#e74c3c"
+              });
+            });
+        } else {
+          const textarea = document.createElement("textarea");
+          textarea.value = phoneNumber;
+          textarea.setAttribute("readonly", "");
+          textarea.style.position = "absolute";
+          textarea.style.left = "-9999px";
+          document.body.appendChild(textarea);
+          textarea.select();
+          try {
+            document.execCommand("copy");
+            alert("電話號碼已複製！");
+          } catch (err) {
+            console.error("複製失敗 (fallback): ", err);
+            alert("複製失敗，請手動複製。");
+          } finally {
+            document.body.removeChild(textarea);
+          }
+        }
+      });
+    </script>
+
+    <!-- Back to top -->
+    <script src="js/jquery-3.7.1.js"></script>
+    <script>
+      $(document).ready(function () {
+        $(window).scroll(function () {
+          if ($(this).scrollTop() > 100) {
+            $("#scroll").fadeIn();
+          } else {
+            $("#scroll").fadeOut();
+          }
+        });
+        $("#scroll").click(function () {
+          $("html, body").animate({scrollTop: 0}, 600);
+          return false;
+        });
+      });
+    </script>
+
+    <!-- forgotten mail -->
+    <script>
+      document.getElementById("sendConfirmEmailBtn").addEventListener("click", () => {
+        Swal.fire({
+          title: "成功",
+          text: "請盡快至Email收件唷，並祝您有美好的一天~",
+          icon: "success",
+          iconColor: "#c6d1c0",
+          confirmButtonText: "確定",
+          confirmButtonColor: "#6b8865",
+          showConfirmButton: true
+        });
+      });
+    </script>
+
+    <!-- loginBtn -->
+    <script>
+      document.querySelectorAll(".loginBtn").forEach((btn) => {
+        btn.addEventListener("click", () => {
+          Swal.fire({
+            title: "會員登入",
+            html: `
+            <div>
+              <input style="
+                width: 100%;
+                margin: auto;
+                margin-top: 20px
+              " type="email" id="swal-input-email" class="swal2-input" placeholder="請輸入Email">
+            </div>
+            <div>
+              <input style="
+                width: 100%;
+                margin: auto;
+                margin-top: 20px
+              " type="password" id="swal-input-password" class="swal2-input" placeholder="請輸入密碼">
+            </div>
+            <div
+              style="
+                width: 100%;
+                margin: auto;
+                margin-top: 20px
+              "
+            >
+              <a
+                onmouseover="this.style.color='#6b8865'"
+                onmouseout="this.style.color='#c6d1c0'"
+                href="forgotten.html"
+                style="color: var(--color-sage-green);display: block;"
+                >忘記密碼
+              </a>
+              <p>
+                還沒有帳號，請點擊<a
+                  onmouseover="this.style.color='#6b8865'"
+                  onmouseout="this.style.color='#c6d1c0'"
+                  href="register.html"
+                  style="color: var(--color-sage-green);"
+                  >註冊會員</a
+                >
+              </p>
+            </div>
+            <div class="border-b-1 border-gray-200 relative text-center my-4">
+              <span class="px-2 bg-white relative -bottom-3 text-gray-300">使用其他方式登入</span>
+            </div>
+            <a class="flex justify-center mt-7" href="#">
+              <img class="w-15 h-15 hover:brightness-90" src="img/icon-line.webp" alt="" />
+            </a>
+          `,
+            focusConfirm: false,
+            showCancelButton: true,
+            confirmButtonText: "登入",
+            confirmButtonColor: "#6b8865",
+            cancelButtonText: "取消",
+            preConfirm: () => {
+              const email = document.getElementById("swal-input-email").value;
+              const password = document.getElementById("swal-input-password").value;
+
+              if (!email || !password) {
+                Swal.showValidationMessage("請輸入 Email 和密碼");
+                return false;
+              }
+
+              return {email, password};
+            }
+          }).then((result) => {
+            if (result.isConfirmed && result.value) {
+              console.log("登入資料：", result.value);
+              Swal.fire({
+                title: "登入成功",
+                icon: "success",
+                iconColor: "#c6d1c0",
+                confirmButtonText: "確定",
+                confirmButtonColor: "#6b8865",
+                showConfirmButton: true
+              }).then((result) => {
+                window.location.href = "member.html";
+              });
+            }
+          });
+        });
+      });
+    </script>
+  </body>
+</html>

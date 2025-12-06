@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>YuShop | 購物車</title>
+
+    <!-- Favicon -->
+    <link href="img/favicon/apple-touch-icon.png" rel="apple-touch-icon" sizes="180x180" />
+    <link type="image/png" href="img/favicon/favicon-32x32.png" rel="icon" sizes="32x32" />
+    <link type="image/png" href="img/favicon/favicon-16x16.png" rel="icon" sizes="16x16" />
+    <link type="image/x-icon" href="img/favicon/favicon.ico" rel="icon" sizes="16x16" />
+
+    <!-- Tailwind CSS -->
+    <link rel="stylesheet" href="css/oz-tailwind.css" />
+    <link rel="stylesheet" href="css/oz-wmy.css" />
+
+    <!-- Sweetalert2 -->
+    <link rel="stylesheet" href="css/sweetalert2.min.css" />
+  </head>
+  <body>
+    <div id="preloader" class="preloader fixed z-50 left-0 top-0 right-0 bottom-0 bg-white flex justify-center items-center">
+      <div class="loader"></div>
+    </div>
+
+    <header class="fixed top-0 left-0 w-full z-50 py-2 bg-sage-green shadow-sm/20">
+      <div class="container relative mx-auto flex justify-between items-center w-full h-full px-3 md:px-5 lg:px-35" x-data="{ showMenu: false } ">
+        <a class="logo block text-center w-1/2 md:w-1/5" href="index.html"><img class="w-40" src="img/Logo.png" alt="" /></a>
+
+        <!-- navMenu button -->
+        <div @click="showMenu = !showMenu" class="block ml-0 sm:ml-2 border border-turf-green text-turf-green hover:bg-white/50 cursor-pointer lg:hidden order-last">
+          <span class="flex items-center justify-center w-10 h-10 text-2xl"><i class="bi bi-list"></i></span>
+        </div>
+
+        <div class="justify-center items-start lg:items-center hidden w-full h-auto lg:relative lg:flex" :class="{'flex absolute z-50 left-0 top-[50px] bg-white/90 backdrop-blur-lg shadow-xl shadow-gray-500/20 rounded-b-3xl': showMenu, 'hidden': !showMenu }">
+          <nav class="flex flex-col justify-center lg:justify-end items-start lg:items-center w-full lg:flex-row justify-items-stretch sm:justity-center sm:items-center pb-5 lg:pb-0">
+            <ul class="nav w-full flex flex-wrap tracking-wider lg:justify-end lg:items-center gap-3 p-3 lg:p-0">
+              <li class="relative lg:w-auto w-full">
+                <a href="products.html" class="block p-3 text-dark-brown hover:text-sage-green md:hover:text-white">線上購物</a>
+              </li>
+              <li class="relative lg:w-auto w-full">
+                <a href="blog.html" class="block p-3 text-dark-brown hover:text-sage-green md:hover:text-white">手作生活筆記</a>
+              </li>
+              <li class="relative lg:w-auto w-full">
+                <a href="contact.html" class="block p-3 text-dark-brown hover:text-sage-green md:hover:text-white">聯絡我們</a>
+              </li>
+              <li class="relative w-auto pt-3 lg:p-0">
+                <button href="#" class="loginBtn cursor-pointer px-4 py-1 rounded-full text-white bg-turf-green transition delay-150 duration-100 ease-in-out hover:brightness-85 flex items-center"><i class="flex items-center pr-2 fi fi-sr-user"></i>登入/註冊</button>
+              </li>
+              <li class="relative pt-3 lg:p-0">
+                <a href="shop-cart.html" class="cursor-pointer px-4 py-1 rounded-full text-white bg-turf-green transition delay-150 duration-100 ease-in-out hover:brightness-85 flex items-center"><i class="flex items-center pr-2 fi fi-rr-shopping-cart"></i>購物車</a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section class="container mx-auto my-20 md:mt-30 px-3 md:px-5 lg:px-35">
+        <div class="flex flex-wrap w-full">
+          <div class="flex flex-wrap w-full lg:w-2/3 text-center text-xl pr-0 lg:pr-5 mb-5 md:mb-10">
+            <h2 class="w-full pb-5 text-xl text-turf-green text-center">購物清單</h2>
+            <ul class="flex-col mx-auto">
+              <li class="flex flex-col w-full">
+                <div class="flex flex-wrap items-center justify-between w-full p-2 mt-3">
+                  <img class="w-1/2 md:w-1/7 px-2" src="img/shop-04.jpg" alt="" />
+                  <span class="w-1/2 md:w-1/7 text-base text-dark-brown mt-5 md:mt-0 px-2">YuSoap-純天然精油小茶燭x12</span>
+                  <div class="w-full md:w-2/7 px-2 mt-5 md:mt-0 text-start">
+                    <span class="text-base text-dark-brown">規格：</span>
+                    <select class="text-base h-7 border border-dark-brown rounded-sm text-dark-brown text-center" name="text">
+                      <option value="" disabled selected>請選擇</option>
+                      <option selected>甜橙</option>
+                      <option>真正薰衣草</option>
+                      <option>白玉蘭葉(花香)</option>
+                      <option>甜馬鬱蘭(草香調)</option>
+                      <option>大西洋雪松</option>
+                      <option>天竺葵(花香)</option>
+                      <option>迷迭香</option>
+                      <option>無香</option>
+                    </select>
+                  </div>
+                  <div class="w-1/2 md:w-1/7 px-2 mt-5 md:mt-0 text-start">
+                    <span class="text-base text-dark-brown">數量：</span>
+                    <select class="text-base h-7 border border-dark-brown rounded-sm text-dark-brown text-center" name="number">
+                      <option selected>1</option>
+                      <option>2</option>
+                      <option>3</option>
+                      <option>4</option>
+                      <option>5</option>
+                    </select>
+                  </div>
+
+                  <span class="w-1/2 md:w-1/7 text-base text-dark-brown mt-5 md:mt-0 px-2">NT$480</span>
+                  <button class="deleteBtn w-full md:w-1/7 cursor-pointer px-5 text-gray-400 transition duration-200 delay-100 hover:scale-110 hover:text-warning-red mt-5 md:mt-0"><i class="text-xl fi fi-br-cross"></i></button>
+                </div>
+                <hr class="text-gray-400 my-5" />
+              </li>
+              <li class="flex flex-col w-full">
+                <div class="flex flex-wrap items-center justify-between w-full p-2 mt-3">
+                  <img class="w-1/2 md:w-1/7 px-2" src="img/shop-05.jpg" alt="" />
+                  <span class="w-1/2 md:w-1/7 text-base text-dark-brown mt-5 md:mt-0 px-2">YuSoap-特調精油滾珠(三種各一)</span>
+                  <div class="w-full md:w-2/7 px-2 mt-5 md:mt-0 text-start">
+                    <span class="text-base text-dark-brown">規格：</span>
+                    <select class="text-base h-7 border border-dark-brown rounded-sm text-dark-brown text-center" name="text" disabled>
+                      <option value="">不可選</option>
+                    </select>
+                  </div>
+                  <div class="w-1/2 md:w-1/7 px-2 mt-5 md:mt-0 text-start">
+                    <span class="text-base text-dark-brown">數量：</span>
+                    <select class="text-base h-7 border border-dark-brown rounded-sm text-dark-brown text-center" name="number">
+                      <option selected>1</option>
+                      <option>2</option>
+                      <option>3</option>
+                      <option>4</option>
+                      <option>5</option>
+                    </select>
+                  </div>
+
+                  <span class="w-1/2 md:w-1/7 text-base text-dark-brown mt-5 md:mt-0 px-2">NT$850</span>
+                  <button class="deleteBtn w-full md:w-1/7 cursor-pointer px-5 text-gray-400 transition duration-200 delay-100 hover:scale-110 hover:text-warning-red mt-5 md:mt-0"><i class="text-xl fi fi-br-cross"></i></button>
+                </div>
+                <hr class="text-gray-400 my-5" />
+              </li>
+              <li class="flex flex-col w-full">
+                <div class="flex flex-wrap items-center justify-between w-full p-2 mt-3">
+                  <img class="w-1/2 md:w-1/7 px-2" src="img/shop-06.jpg" alt="" />
+                  <span class="w-1/2 md:w-1/7 text-base text-dark-brown mt-5 md:mt-0 px-2">YuSoap-和果子皂</span>
+                  <div class="w-full md:w-2/7 px-2 mt-5 md:mt-0 text-start">
+                    <span class="text-base text-dark-brown">規格：</span>
+                    <select class="text-base h-7 border border-dark-brown rounded-sm text-dark-brown text-center" name="text" disabled>
+                      <option value="">不可選</option>
+                    </select>
+                  </div>
+                  <div class="w-1/2 md:w-1/7 px-2 mt-5 md:mt-0 text-start">
+                    <span class="text-base text-dark-brown">數量：</span>
+                    <select class="text-base h-7 border border-dark-brown rounded-sm text-dark-brown text-center" name="number">
+                      <option selected>1</option>
+                      <option>2</option>
+                      <option>3</option>
+                      <option>4</option>
+                      <option>5</option>
+                    </select>
+                  </div>
+
+                  <span class="w-1/2 md:w-1/7 text-base text-dark-brown mt-5 md:mt-0 px-2">NT$33</span>
+                  <button class="deleteBtn w-full md:w-1/7 cursor-pointer px-5 text-gray-400 transition duration-200 delay-100 hover:scale-110 hover:text-warning-red mt-5 md:mt-0"><i class="text-xl fi fi-br-cross"></i></button>
+                </div>
+
+                <hr class="text-gray-400 my-5" />
+              </li>
+            </ul>
+          </div>
+          <div class="flex flex-col w-full lg:w-1/3 mb-5 md:mb-15">
+            <div class="sticky top-20 w-full bg-gray-100 px-5 py-5 rounded-2xl">
+              <h2 class="text-xl text-center text-turf-green mb-10">總計</h2>
+              <div class="w-full flex px-5 py-1 mb-3 bg-white rounded-2xl">
+                <span class="w-1/2 text-base font-semibold text-dark-brown">帳單原價</span>
+                <span class="w-1/2 text-base text-gray-400 text-end">NT$1,363</span>
+              </div>
+              <div class="w-full flex px-5 py-1 mb-3 bg-white rounded-2xl">
+                <span class="w-1/2 text-base font-semibold text-dark-brown">商品總計</span>
+                <span class="w-1/2 text-base text-dark-brown text-end">NT$1,363</span>
+              </div>
+              <hr class="text-gray-400 my-5" />
+              <div class="w-full flex justify-items-stretch font-semibold px-5 pb-5">
+                <span class="w-1/2 text-xl text-dark-brown">帳單總計</span>
+                <span class="w-1/2 text-xl text-dark-brown text-end">NT$1,363</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 請加上登入判斷 start -->
+        <div class="w-full flex justify-center gap-5 mx-auto">
+          <div class="text-center py-2 transition delay-150 duration-300 ease-in-out hover:brightness-85 hover:scale-110">
+            <a class="loginBtn cursor-pointer text-white py-2 px-4 rounded-full bg-turf-green">會員登錄</a>
+          </div>
+          <!-- <div class="text-center py-2 transition delay-150 duration-300 ease-in-out hover:brightness-85 hover:scale-110">
+            <a href="shop-cart01.html" class="cursor-pointer text-white py-2 px-4 rounded-full bg-turf-green">訂單確認</a>
+          </div> -->
+
+          <!-- 請加上登入判斷 end -->
+
+          <div class="text-center py-2 transition delay-150 duration-300 ease-in-out hover:brightness-85 hover:scale-110">
+            <a href="shop-cart01.html" class="cursor-pointer text-white py-2 px-4 rounded-full bg-turf-green">訪客快速結帳</a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="relative">
+      <div class="bg-kale-green pt-13 w-full h-full bg-cover bg-[url(../img/SVG/footer-leaf.svg)] bg-position-[center_top_4rem] bg-no-repeat 2xl:bg-position-[center_top_3rem] px-3 md:px-5">
+        <div class="absolute inset-0 bg-linear-to-t from-kale-green/70 to-transparent"></div>
+        <div class="container relative mx-auto flex flex-col justify-center items-center gap-2 pb-5">
+          <img class="w-50" src="img/Logo.png" alt="YuShop|手工肥皂" />
+          <span class="flex items-center my-5 gap-3">
+            <button class="cursor-pointer text-white transition delay-150 duration-100 ease-in-out hover:text-sage-green flex items-center justify-center">
+              <a href="https://www.facebook.com/profile.php?id=100078377745229#">
+                <i class="text-3xl fi fi-brands-facebook"></i>
+              </a>
+            </button>
+            <button class="cursor-pointer text-white transition delay-150 duration-100 ease-in-out hover:text-sage-green flex items-center justify-center">
+              <a href="#">
+                <i class="text-3xl fi fi-brands-line"></i>
+              </a>
+            </button>
+            <button id="copyPhoneNumberBtn" data-phone-number="0932157002" class="cursor-pointer text-white transition delay-150 duration-100 ease-in-out hover:text-sage-green flex items-center justify-center">
+              <i class="text-3xl fi fi-sr-circle-phone-flip"></i>
+            </button>
+          </span>
+          <div class="w-full text-center border-t-1 border-sage-green flex flex-col sm:flex-row justify-between gap-2">
+            <p class="text-base mt-3 text-white">COPYRIGHT © 2025 YuSoap-天然手工皂　All rights reserved.</p>
+            <a class="text-base sm:mt-3 text-white" class="" href="https://www.ozchamp.com/"><p>Web Designed by OZCHAMP.</p></a>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <a href="#" id="scroll" style="display: none"><span></span></a>
+
+    <!-- alpine.js -->
+    <script src="js/alpinejs3.12.3.js"></script>
+
+    <!-- jquery.js -->
+    <script src="js/jquery.js"></script>
+
+    <!-- main -->
+    <script src="js/main.js"></script>
+
+    <!-- copy number  -->
+    <script>
+      document.getElementById("copyPhoneNumberBtn").addEventListener("click", function () {
+        const phoneNumber = this.getAttribute("data-phone-number")
+
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard
+            .writeText(phoneNumber)
+            .then(() => {
+              Swal.fire({
+                title: "成功",
+                text: "電話號碼已複製！",
+                icon: "success",
+                iconColor: "#c6d1c0",
+                confirmButtonText: "確定",
+                confirmButtonColor: "#6b8865",
+                showConfirmButton: true
+              })
+            })
+            .catch((err) => {
+              console.error("複製失敗: ", err)
+              Swal.fire({
+                title: "錯誤",
+                text: "複製失敗，請再試一次。",
+                icon: "error",
+                iconColor: "#e74c3c"
+              })
+            })
+        } else {
+          const textarea = document.createElement("textarea")
+          textarea.value = phoneNumber
+          textarea.setAttribute("readonly", "")
+          textarea.style.position = "absolute"
+          textarea.style.left = "-9999px"
+          document.body.appendChild(textarea)
+          textarea.select()
+          try {
+            document.execCommand("copy")
+            alert("電話號碼已複製！")
+          } catch (err) {
+            console.error("複製失敗 (fallback): ", err)
+            alert("複製失敗，請手動複製。")
+          } finally {
+            document.body.removeChild(textarea)
+          }
+        }
+      })
+    </script>
+
+    <!-- Back to top -->
+    <script src="js/jquery-3.7.1.js"></script>
+    <script>
+      $(document).ready(function () {
+        $(window).scroll(function () {
+          if ($(this).scrollTop() > 100) {
+            $("#scroll").fadeIn()
+          } else {
+            $("#scroll").fadeOut()
+          }
+        })
+        $("#scroll").click(function () {
+          $("html, body").animate({scrollTop: 0}, 600)
+          return false
+        })
+      })
+    </script>
+
+    <!-- Sweetalert2 -->
+    <script src="js/sweetalert2.all.min.js"></script>
+    <!-- loginBtn -->
+    <script>
+      document.querySelectorAll(".loginBtn").forEach((btn) => {
+        btn.addEventListener("click", () => {
+          Swal.fire({
+            title: "會員登入",
+            html: `
+            <div>
+              <input style="
+                width: 100%;
+                margin: auto;
+                margin-top: 20px
+              " type="email" id="swal-input-email" class="swal2-input" placeholder="請輸入Email">
+            </div>
+            <div>
+              <input style="
+                width: 100%;
+                margin: auto;
+                margin-top: 20px
+              " type="password" id="swal-input-password" class="swal2-input" placeholder="請輸入密碼">
+            </div>
+            <div
+              style="
+                width: 100%;
+                margin: auto;
+                margin-top: 20px
+              "
+            >
+              <a
+                onmouseover="this.style.color='#6b8865'"
+                onmouseout="this.style.color='#c6d1c0'"
+                href="forgotten.html"
+                style="color: var(--color-sage-green);display: block;"
+                >忘記密碼
+              </a>
+              <p>
+                還沒有帳號，請點擊<a
+                  onmouseover="this.style.color='#6b8865'"
+                  onmouseout="this.style.color='#c6d1c0'"
+                  href="register.html"
+                  style="color: var(--color-sage-green);"
+                  >註冊會員</a
+                >
+              </p>
+            </div>
+            <div class="border-b-1 border-gray-200 relative text-center my-4">
+              <span class="px-2 bg-white relative -bottom-3 text-gray-300">使用其他方式登入</span>
+            </div>
+            <a class="flex justify-center mt-7" href="#">
+              <img class="w-15 h-15 hover:brightness-90" src="img/icon-line.webp" alt="" />
+            </a>
+          `,
+            focusConfirm: false,
+            showCancelButton: true,
+            confirmButtonText: "登入",
+            confirmButtonColor: "#6b8865",
+            cancelButtonText: "取消",
+            preConfirm: () => {
+              const email = document.getElementById("swal-input-email").value
+              const password = document.getElementById("swal-input-password").value
+
+              if (!email || !password) {
+                Swal.showValidationMessage("請輸入 Email 和密碼")
+                return false
+              }
+
+              return {email, password}
+            }
+          }).then((result) => {
+            if (result.isConfirmed && result.value) {
+              console.log("登入資料：", result.value)
+              Swal.fire({
+                title: "登入成功",
+                icon: "success",
+                iconColor: "#c6d1c0",
+                confirmButtonText: "確定",
+                confirmButtonColor: "#6b8865",
+                showConfirmButton: true
+              }).then((result) => {
+                window.location.href = "member.html"
+              })
+            }
+          })
+        })
+      })
+    </script>
+    <!-- Delete confirmation -->
+    <script>
+      document.querySelectorAll(".deleteBtn").forEach((btn) => {
+        btn.addEventListener("click", () => {
+          Swal.fire({
+            title: "您將移除此樣商品嗎？",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "確認移除",
+            confirmButtonColor: "#6b8865",
+            cancelButtonText: "取消"
+          }).then((result) => {
+            if (result.isConfirmed) {
+              Swal.fire({
+                title: "移除成功",
+                icon: "success",
+                iconColor: "#c6d1c0",
+                confirmButtonColor: "#6b8865"
+              })
+            }
+          })
+        })
+      })
+    </script>
+  </body>
+</html>

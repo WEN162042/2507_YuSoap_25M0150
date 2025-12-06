@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>YuShop | 商品列表</title>
+
+    <!-- Favicon -->
+    <link href="img/favicon/apple-touch-icon.png" rel="apple-touch-icon" sizes="180x180" />
+    <link type="image/png" href="img/favicon/favicon-32x32.png" rel="icon" sizes="32x32" />
+    <link type="image/png" href="img/favicon/favicon-16x16.png" rel="icon" sizes="16x16" />
+    <link type="image/x-icon" href="img/favicon/favicon.ico" rel="icon" sizes="16x16" />
+
+    <!-- Tailwind CSS -->
+    <link rel="stylesheet" href="css/oz-tailwind.css" />
+    <link rel="stylesheet" href="css/oz-wmy.css" />
+
+    <!-- Swiper -->
+    <link rel="stylesheet" href="css/oz-products.css" />
+    <link rel="stylesheet" href="css/swiper-bundle.min.css" />
+
+    <!-- Sweetalert2 -->
+    <link rel="stylesheet" href="css/sweetalert2.min.css" />
+  </head>
+  <body>
+    <div id="preloader" class="preloader fixed z-50 left-0 top-0 right-0 bottom-0 bg-white flex justify-center items-center">
+      <div class="loader"></div>
+    </div>
+
+    <header class="fixed top-0 left-0 w-full z-50 py-2 bg-sage-green shadow-sm/20">
+      <div class="container relative mx-auto flex justify-between items-center w-full h-full px-3 md:px-5" x-data="{ showMenu: false } ">
+        <a class="logo block text-center w-1/2 md:w-1/5" href="index.html"><img class="w-40" src="img/Logo.png" alt="" /></a>
+
+        <!-- navMenu button -->
+        <div @click="showMenu = !showMenu" class="block ml-0 sm:ml-2 border border-turf-green text-turf-green hover:bg-white/50 cursor-pointer lg:hidden order-last">
+          <span class="flex items-center justify-center w-10 h-10 text-2xl"><i class="bi bi-list"></i></span>
+        </div>
+
+        <div class="justify-center items-start lg:items-center hidden w-full h-auto lg:relative lg:flex" :class="{'flex absolute z-50 left-0 top-[50px] bg-white/90 backdrop-blur-lg shadow-xl shadow-gray-500/20 rounded-b-3xl': showMenu, 'hidden': !showMenu }">
+          <nav class="flex flex-col justify-center lg:justify-end items-start lg:items-center w-full lg:flex-row justify-items-stretch sm:justity-center sm:items-center pb-5 lg:pb-0">
+            <ul class="nav w-full flex flex-wrap tracking-wider lg:justify-end lg:items-center gap-3 p-3 lg:p-0">
+              <li class="relative lg:w-auto w-full">
+                <a href="products.html" class="block p-3 text-dark-brown hover:text-sage-green md:hover:text-white">線上購物</a>
+              </li>
+              <li class="relative lg:w-auto w-full">
+                <a href="blog.html" class="block p-3 text-dark-brown hover:text-sage-green md:hover:text-white">手作生活筆記</a>
+              </li>
+              <li class="relative lg:w-auto w-full">
+                <a href="contact.html" class="block p-3 text-dark-brown hover:text-sage-green md:hover:text-white">聯絡我們</a>
+              </li>
+              <li class="relative w-auto pt-3 lg:p-0">
+                <a href="member.html" class="cursor-pointer px-4 py-1 rounded-full text-white bg-turf-green transition delay-150 duration-100 ease-in-out hover:brightness-85 flex items-center"><i class="flex items-center pr-2 fi fi-sr-user"></i>xiaomi2_fuzhou 您好!｜會員中心｜登出</a>
+              </li>
+              <li class="relative pt-3 lg:p-0">
+                <a href="shop-cart.html" class="cursor-pointer px-4 py-1 rounded-full text-white bg-turf-green transition delay-150 duration-100 ease-in-out hover:brightness-85 flex items-center"><i class="pr-2 fi fi-rr-shopping-cart"></i>購物車(0)</a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section class="container mx-auto mt-20 md:mt-30 mb-10 px-3 md:px-5 lg:px-35">
+        <ul class="flex items-center gap-2">
+          <li class="flex items-center">
+            <a href="index.html" class="text-kale-green hover:text-sage-green hover:underline">首頁</a>
+          </li>
+          <li class="flex items-center before:content-['/'] before:px-2 before:text-sage-green">
+            <span class="text-sage-green">線上購物</span>
+          </li>
+        </ul>
+      </section>
+
+      <section class="container mx-auto mb-20 px-3 md:px-5 lg:px-35">
+        <div class="swiper productsSwiper">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide">
+              <a href="products.html">
+                <div class="w-full relative aspect-square bg-cover bg-center rounded-2xl overflow-hidden" style="background-image: url(img/blog/article-4.jpg)">
+                  <div class="absolute inset-0 backdrop-blur-[2px] bg-white/25"></div>
+                  <div class="absolute inset-0 flex items-center justify-center">
+                    <span class="text-center text-pretty text-xl md:text-2xl font-bold text-white text-shadow-lg px-3">全部商品</span>
+                  </div>
+                </div>
+              </a>
+            </div>
+
+            <!-- 客戶自行換分類背景圖片 -->
+            <div class="swiper-slide">
+              <a href="products.html">
+                <div class="w-full relative aspect-square bg-cover bg-center rounded-2xl overflow-hidden" style="background-image: url(img/blog/article-4.jpg)">
+                  <div class="absolute inset-0 backdrop-blur-[2px] bg-white/25"></div>
+                  <div class="absolute inset-0 flex items-center justify-center">
+                    <span class="text-center text-pretty text-xl md:text-2xl font-bold text-white text-shadow-lg px-3">甘油皂基<br />造型香皂</span>
+                  </div>
+                </div>
+              </a>
+            </div>
+
+            <div class="swiper-slide">
+              <a href="products.html">
+                <div class="w-full relative aspect-square bg-cover bg-center rounded-2xl overflow-hidden" style="background-image: url(img/blog/article-5.jpg)">
+                  <div class="absolute inset-0 backdrop-blur-[2px] bg-white/25"></div>
+                  <div class="absolute inset-0 flex items-center justify-center">
+                    <span class="text-center text-pretty text-xl md:text-2xl font-bold text-white text-shadow-lg px-3">午時水系列</span>
+                  </div>
+                </div>
+              </a>
+            </div>
+
+            <div class="swiper-slide">
+              <a href="products.html">
+                <div class="w-full relative aspect-square bg-cover bg-center rounded-2xl overflow-hidden" style="background-image: url(img/blog/article-6.jpg)">
+                  <div class="absolute inset-0 backdrop-blur-[2px] bg-white/25"></div>
+                  <div class="absolute inset-0 flex items-center justify-center">
+                    <span class="text-center text-pretty text-xl md:text-2xl font-bold text-white text-shadow-lg px-3">純精油<br />大豆蠟燭</span>
+                  </div>
+                </div>
+              </a>
+            </div>
+
+            <div class="swiper-slide">
+              <a href="products.html">
+                <div class="w-full relative aspect-square bg-cover bg-center rounded-2xl overflow-hidden" style="background-image: url(img/blog/article-7.jpg)">
+                  <div class="absolute inset-0 backdrop-blur-[2px] bg-white/25"></div>
+                  <div class="absolute inset-0 flex items-center justify-center">
+                    <span class="text-center text-pretty text-xl md:text-2xl font-bold text-white text-shadow-lg px-3">YuSoap<br />精油滾珠</span>
+                  </div>
+                </div>
+              </a>
+            </div>
+
+            <div class="swiper-slide">
+              <a href="products.html">
+                <div class="w-full relative aspect-square bg-cover bg-center rounded-2xl overflow-hidden" style="background-image: url(img/blog/article-8.jpg)">
+                  <div class="absolute inset-0 backdrop-blur-[2px] bg-white/25"></div>
+                  <div class="absolute inset-0 flex items-center justify-center">
+                    <span class="text-center text-pretty text-xl md:text-2xl font-bold text-white text-shadow-lg px-3">中 / 乾性<br />肌膚</span>
+                  </div>
+                </div>
+              </a>
+            </div>
+
+            <div class="swiper-slide">
+              <a href="products.html">
+                <div class="w-full relative aspect-square bg-cover bg-center rounded-2xl overflow-hidden" style="background-image: url(img/blog/article-9.jpg)">
+                  <div class="absolute inset-0 backdrop-blur-[2px] bg-white/25"></div>
+                  <div class="absolute inset-0 flex items-center justify-center">
+                    <span class="text-center text-pretty text-xl md:text-2xl font-bold text-white text-shadow-lg px-3">中 / 混和 / 油性<br />肌膚</span>
+                  </div>
+                </div>
+              </a>
+            </div>
+          </div>
+          <div class="swiper-button-next"></div>
+          <div class="swiper-button-prev"></div>
+          <div class="swiper-pagination"></div>
+        </div>
+      </section>
+
+      <section class="container mx-auto mb-20 px-3 md:px-5 lg:px-35">
+        <div class="text-center mb-10">
+          <div class="relative mb-2">
+            <div class="absolute w-full top-1/2 flex items-center">
+              <div class="w-full border-t border-turf-green"></div>
+            </div>
+            <h2 class="relative inline-block text-2xl px-3 bg-white text-turf-green">全部商品</h2>
+          </div>
+          <span class="text-2xl font-sacra text-sage-green text-nowrap">Products</span>
+        </div>
+        <ul class="w-full mx-auto flex flex-wrap mb-10">
+          <li class="w-full md:w-1/3 md:px-3 pb-8">
+            <a class="" href="product01.html">
+              <div class="w-full pb-2">
+                <img class="rounded-2xl w-full lg:h-[240px] object-cover object-center" src="img/shop-01.jpg" alt="" />
+              </div>
+              <div class="w-full text-center">
+                <h2 class="text-lg text-turf-green">午時水抹草平安皂(寶寶用)</h2>
+                <p class="text-dark-brown">直購價：NT$195</p>
+              </div>
+            </a>
+          </li>
+          <li class="w-full md:w-1/3 md:px-3 pb-8">
+            <a href="product01.html">
+              <div class="w-full pb-2">
+                <img class="rounded-2xl w-full lg:h-[240px] object-cover object-center" src="img/shop-02.jpg" alt="" />
+              </div>
+              <div class="w-full text-center">
+                <h2 class="text-lg text-turf-green">午時水抹草平安皂(寶寶用)</h2>
+                <p class="text-dark-brown">直購價：NT$195</p>
+              </div>
+            </a>
+          </li>
+          <li class="w-full md:w-1/3 md:px-3 pb-8">
+            <a href="product01.html">
+              <div class="w-full pb-2">
+                <img class="rounded-2xl w-full lg:h-[240px] object-cover object-center" src="img/shop-03.jpg" alt="" />
+              </div>
+              <div class="w-full text-center">
+                <h2 class="text-lg text-turf-green">午時水抹草平安皂(寶寶用)</h2>
+                <p class="text-dark-brown">直購價：NT$195</p>
+              </div>
+            </a>
+          </li>
+          <li class="w-full md:w-1/3 md:px-3 pb-8">
+            <a class="" href="product01.html">
+              <div class="w-full pb-2">
+                <img class="rounded-2xl w-full lg:h-[240px] object-cover object-center" src="img/shop-01.jpg" alt="" />
+              </div>
+              <div class="w-full text-center">
+                <h2 class="text-lg text-turf-green">午時水抹草平安皂(寶寶用)</h2>
+                <p class="text-dark-brown">直購價：NT$195</p>
+              </div>
+            </a>
+          </li>
+          <li class="w-full md:w-1/3 md:px-3 pb-8">
+            <a href="product01.html">
+              <div class="w-full pb-2">
+                <img class="rounded-2xl w-full lg:h-[240px] object-cover object-center" src="img/shop-02.jpg" alt="" />
+              </div>
+              <div class="w-full text-center">
+                <h2 class="text-lg text-turf-green">午時水抹草平安皂(寶寶用)</h2>
+                <p class="text-dark-brown">直購價：NT$195</p>
+              </div>
+            </a>
+          </li>
+          <li class="w-full md:w-1/3 md:px-3 pb-8">
+            <a href="product01.html">
+              <div class="w-full pb-2">
+                <img class="rounded-2xl w-full lg:h-[240px] object-cover object-center" src="img/shop-03.jpg" alt="" />
+              </div>
+              <div class="w-full text-center">
+                <h2 class="text-lg text-turf-green">午時水抹草平安皂(寶寶用)</h2>
+                <p class="text-dark-brown">直購價：NT$195</p>
+              </div>
+            </a>
+          </li>
+          <li class="w-full md:w-1/3 md:px-3 pb-8">
+            <a class="" href="product01.html">
+              <div class="w-full pb-2">
+                <img class="rounded-2xl w-full lg:h-[240px] object-cover object-center" src="img/shop-01.jpg" alt="" />
+              </div>
+              <div class="w-full text-center">
+                <h2 class="text-lg text-turf-green">午時水抹草平安皂(寶寶用)</h2>
+                <p class="text-dark-brown">直購價：NT$195</p>
+              </div>
+            </a>
+          </li>
+          <li class="w-full md:w-1/3 md:px-3 pb-8">
+            <a href="product01.html">
+              <div class="w-full pb-2">
+                <img class="rounded-2xl w-full lg:h-[240px] object-cover object-center" src="img/shop-02.jpg" alt="" />
+              </div>
+              <div class="w-full text-center">
+                <h2 class="text-lg text-turf-green">午時水抹草平安皂(寶寶用)</h2>
+                <p class="text-dark-brown">直購價：NT$195</p>
+              </div>
+            </a>
+          </li>
+          <li class="w-full md:w-1/3 md:px-3 pb-8">
+            <a href="product01.html">
+              <div class="w-full pb-2">
+                <img class="rounded-2xl w-full lg:h-[240px] object-cover object-center" src="img/shop-03.jpg" alt="" />
+              </div>
+              <div class="w-full text-center">
+                <h2 class="text-lg text-turf-green">午時水抹草平安皂(寶寶用)</h2>
+                <p class="text-dark-brown">直購價：NT$195</p>
+              </div>
+            </a>
+          </li>
+        </ul>
+        <div class="flex justify-center items-center">
+          <a href="#" class="text-sage-green px-4 py-2 transition duration-300 hover:text-kale-green">&laquo;</a>
+          <a href="#" class="bg-turf-green text-white px-4 py-2 rounded-full">1</a>
+          <a href="#" class="text-sage-green px-4 py-2 transition duration-300 hover:text-kale-green">2</a>
+
+          <a href="#" class="text-sage-green px-4 py-2 transition duration-300 hover:text-kale-green">3</a>
+          <a href="#" class="text-sage-green px-4 py-2 transition duration-300 hover:text-kale-green">&raquo;</a>
+        </div>
+      </section>
+    </main>
+
+    <footer class="relative">
+      <div class="bg-kale-green pt-13 w-full h-full bg-cover bg-[url(../img/SVG/footer-leaf.svg)] bg-position-[center_top_4rem] bg-no-repeat 2xl:bg-position-[center_top_3rem] px-3 md:px-5">
+        <div class="absolute inset-0 bg-linear-to-t from-kale-green/70 to-transparent"></div>
+        <div class="container relative mx-auto flex flex-col justify-center items-center gap-2 pb-5">
+          <img class="w-50" src="img/Logo.png" alt="YuShop|手工肥皂" />
+          <span class="flex items-center my-5 gap-3">
+            <button class="cursor-pointer text-white transition delay-150 duration-100 ease-in-out hover:text-sage-green flex items-center justify-center">
+              <a href="https://www.facebook.com/profile.php?id=100078377745229#">
+                <i class="text-3xl fi fi-brands-facebook"></i>
+              </a>
+            </button>
+            <button class="cursor-pointer text-white transition delay-150 duration-100 ease-in-out hover:text-sage-green flex items-center justify-center">
+              <a href="#">
+                <i class="text-3xl fi fi-brands-line"></i>
+              </a>
+            </button>
+            <button id="copyPhoneNumberBtn" data-phone-number="0932157002" class="cursor-pointer text-white transition delay-150 duration-100 ease-in-out hover:text-sage-green flex items-center justify-center">
+              <i class="text-3xl fi fi-sr-circle-phone-flip"></i>
+            </button>
+          </span>
+          <div class="w-full text-center border-t-1 border-sage-green flex flex-col sm:flex-row justify-between gap-2">
+            <p class="text-sm mt-3 text-white">COPYRIGHT © 2025 YuSoap-天然手工皂　All rights reserved.</p>
+            <a class="text-sm sm:mt-3 text-white" class="" href="https://www.ozchamp.com/"><p>Web Designed by OZCHAMP.</p></a>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <a href="#" id="scroll" style="display: none"><span></span></a>
+
+    <!-- alpine.js -->
+    <script src="js/alpinejs3.12.3.js"></script>
+
+    <!-- jquery.js -->
+    <script src="js/jquery.js"></script>
+
+    <!-- main -->
+    <script src="js/main.js"></script>
+
+    <!-- Swiper products category -->
+    <script src="js/swiper-bundle.min.js"></script>
+    <script>
+      var swiper = new Swiper(".productsSwiper", {
+        grid: {
+          rows: 2,
+          fill: "row"
+        },
+        pagination: {
+          el: ".swiper-pagination",
+          clickable: true
+        },
+        navigation: {
+          nextEl: ".swiper-button-next",
+          prevEl: ".swiper-button-prev"
+        },
+        breakpoints: {
+          // when window width is >= 320px
+          320: {
+            slidesPerView: 2,
+            spaceBetween: 10
+          },
+          768: {
+            slidesPerView: 3,
+            spaceBetween: 20
+          }
+        }
+      });
+    </script>
+
+    <!-- Sweetalert2 -->
+    <script src="js/sweetalert2.all.min.js"></script>
+
+    <!-- copy number  -->
+    <script>
+      document.getElementById("copyPhoneNumberBtn").addEventListener("click", function () {
+        const phoneNumber = this.getAttribute("data-phone-number");
+
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard
+            .writeText(phoneNumber)
+            .then(() => {
+              Swal.fire({
+                title: "成功",
+                text: "電話號碼已複製！",
+                icon: "success",
+                iconColor: "#c6d1c0",
+                confirmButtonText: "確定",
+                confirmButtonColor: "#6b8865",
+                showConfirmButton: true
+              });
+            })
+            .catch((err) => {
+              console.error("複製失敗: ", err);
+              Swal.fire({
+                title: "錯誤",
+                text: "複製失敗，請再試一次。",
+                icon: "error",
+                iconColor: "#e74c3c"
+              });
+            });
+        } else {
+          const textarea = document.createElement("textarea");
+          textarea.value = phoneNumber;
+          textarea.setAttribute("readonly", "");
+          textarea.style.position = "absolute";
+          textarea.style.left = "-9999px";
+          document.body.appendChild(textarea);
+          textarea.select();
+          try {
+            document.execCommand("copy");
+            alert("電話號碼已複製！");
+          } catch (err) {
+            console.error("複製失敗 (fallback): ", err);
+            alert("複製失敗，請手動複製。");
+          } finally {
+            document.body.removeChild(textarea);
+          }
+        }
+      });
+    </script>
+
+    <!-- Back to top -->
+    <script src="js/jquery-3.7.1.js"></script>
+    <script>
+      $(document).ready(function () {
+        $(window).scroll(function () {
+          if ($(this).scrollTop() > 100) {
+            $("#scroll").fadeIn();
+          } else {
+            $("#scroll").fadeOut();
+          }
+        });
+        $("#scroll").click(function () {
+          $("html, body").animate({scrollTop: 0}, 600);
+          return false;
+        });
+      });
+    </script>
+  </body>
+</html>

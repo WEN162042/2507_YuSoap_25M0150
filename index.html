@@ -1,0 +1,665 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>YuShop | 天然手工皂</title>
+
+    <!-- Favicon -->
+    <link href="img/favicon/apple-touch-icon.png" rel="apple-touch-icon" sizes="180x180" />
+    <link type="image/png" href="img/favicon/favicon-32x32.png" rel="icon" sizes="32x32" />
+    <link type="image/png" href="img/favicon/favicon-16x16.png" rel="icon" sizes="16x16" />
+    <link type="image/x-icon" href="img/favicon/favicon.ico" rel="icon" sizes="16x16" />
+
+    <!-- Swiper -->
+    <link rel="stylesheet" href="css/swiper-bundle.min.css" />
+
+    <!-- Tailwind CSS -->
+    <link rel="stylesheet" href="css/oz-tailwind.css" />
+    <link rel="stylesheet" href="css/oz-wmy.css" />
+
+    <!-- Owl Stylesheets -->
+    <link rel="stylesheet" href="css/owl.carousel.min.css" />
+    <link rel="stylesheet" href="css/owl.theme.default.min.css" />
+
+    <!-- Sweetalert2 -->
+    <link rel="stylesheet" href="css/sweetalert2.min.css" />
+  </head>
+  <body>
+    <div id="preloader" class="preloader fixed z-50 left-0 top-0 right-0 bottom-0 bg-white flex justify-center items-center">
+      <div class="loader"></div>
+    </div>
+
+    <header class="fixed top-0 left-0 w-full z-50 py-2 bg-sage-green shadow-sm/20">
+      <div class="container relative mx-auto flex justify-between items-center w-full h-full px-3 md:px-5 lg:px-35" x-data="{ showMenu: false } ">
+        <a class="logo block text-center w-1/2 md:w-1/5" href="index.html"><img class="w-40" src="img/Logo.png" alt="" /></a>
+
+        <!-- navMenu button -->
+        <div @click="showMenu = !showMenu" class="block ml-0 sm:ml-2 border border-turf-green text-turf-green hover:bg-white/50 cursor-pointer lg:hidden order-last">
+          <span class="flex items-center justify-center w-10 h-10 text-2xl"><i class="bi bi-list"></i></span>
+        </div>
+
+        <div class="justify-center items-start lg:items-center hidden w-full h-auto lg:relative lg:flex" :class="{'flex absolute z-50 left-0 top-[50px] bg-white/90 backdrop-blur-lg shadow-xl shadow-gray-500/20 rounded-b-3xl': showMenu, 'hidden': !showMenu }">
+          <nav class="flex flex-col justify-center lg:justify-end items-start lg:items-center w-full lg:flex-row justify-items-stretch sm:justity-center sm:items-center pb-5 lg:pb-0">
+            <ul class="nav w-full flex flex-wrap tracking-wider lg:justify-end lg:items-center gap-3 p-3 lg:p-0">
+              <li class="relative lg:w-auto w-full">
+                <a href="products.html" class="block p-3 text-dark-brown hover:text-sage-green md:hover:text-white">線上購物</a>
+              </li>
+              <li class="relative lg:w-auto w-full">
+                <a href="blog.html" class="block p-3 text-dark-brown hover:text-sage-green md:hover:text-white">手作生活筆記</a>
+              </li>
+              <li class="relative lg:w-auto w-full">
+                <a href="contact.html" class="block p-3 text-dark-brown hover:text-sage-green md:hover:text-white">聯絡我們</a>
+              </li>
+              <li class="relative w-auto pt-3 lg:p-0">
+                <button href="#" class="loginBtn cursor-pointer px-4 py-1 rounded-full text-white bg-turf-green transition delay-150 duration-100 ease-in-out hover:brightness-85 flex items-center"><i class="flex items-center pr-2 fi fi-sr-user"></i>登入/註冊</button>
+              </li>
+              <li class="relative pt-3 lg:p-0">
+                <a href="shop-cart.html" class="cursor-pointer px-4 py-1 rounded-full text-white bg-turf-green transition delay-150 duration-100 ease-in-out hover:brightness-85 flex items-center"><i class="flex items-center pr-2 fi fi-rr-shopping-cart"></i>購物車</a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section class="container mx-auto">
+        <div class="relative lg:h-[400px] h-[200px] mt-14 lg:rounded-b-3xl overflow-hidden">
+          <div class="swiper mySwiper">
+            <div class="swiper-wrapper">
+              <div class="swiper-slide h-full overflow-hidden">
+                <a class="w-full h-full bg-cover bg-center" style="background-image: url(img/home-bn01.jpg)" href="#"></a>
+              </div>
+              <div class="swiper-slide h-full overflow-hidden">
+                <a class="w-full h-full bg-cover bg-center" style="background-image: url(img/home-bn01.jpg)" href="#"></a>
+              </div>
+              <div class="swiper-slide h-full overflow-hidden">
+                <a class="w-full h-full bg-cover bg-center" style="background-image: url(img/home-bn01.jpg)" href="#"></a>
+              </div>
+            </div>
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-pagination"></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="container mx-auto mt-10 px-3 md:px-5 lg:px-35">
+        <div class="mx-auto my-10">
+          <div class="w-full flex flex-col justify-center items-center">
+            <!-- <img class="w-20 mb-2" src="img/soap.png" alt="" /> -->
+            <h2 class="text-kale-green text-center mb-[20px] text-balance text-2xl">用心製作，只給您最愛的肥皂</h2>
+            <p class="w-full lg:w-2/3 text-turf-green text-center text-xl">YuSoap 的每塊肥皂，都是我們也喜愛的產品。從選料、製作到包裝，每個步驟我們都抱著「讓喜歡手工皂的你也能安心使用」的心意，認真完成。</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Shop -->
+      <section class="container mx-auto mt-20 px-3 md:px-5 lg:px-35">
+        <div class="relative inline-block pt-3">
+          <h2 class="text-kale-green w-fit mb-6 text-2xl">線上購物</h2>
+          <span class="-z-10 text-4xl absolute top-0 left-18 font-sacra text-sage-green text-nowrap"> Product </span>
+        </div>
+
+        <!-- 客戶自行換分類背景圖片 -->
+        <div class="grid grid-cols-2 md:grid-cols-3 gap-2 md:gap-y-5 md:gap-x-10 flex-1">
+          <a class="relative flex justify-center items-center" href="products.html">
+            <div class="w-full relative aspect-square bg-cover bg-center rounded-2xl overflow-hidden" style="background-image: url(img/blog/article-4.jpg)">
+              <div class="absolute inset-0 backdrop-blur-[2px] bg-white/25"></div>
+              <div class="absolute inset-0 flex items-center justify-center">
+                <span class="text-center text-pretty text-xl md:text-2xl font-bold text-white text-shadow-lg px-3">甘油皂基<br />造型香皂</span>
+              </div>
+            </div>
+          </a>
+          <a class="relative flex justify-center items-center" href="products.html">
+            <div class="w-full relative aspect-square bg-cover bg-center rounded-2xl overflow-hidden" style="background-image: url(img/blog/article-5.jpg)">
+              <div class="absolute inset-0 backdrop-blur-[2px] bg-white/25"></div>
+              <div class="absolute inset-0 flex items-center justify-center">
+                <span class="text-center text-pretty text-xl md:text-2xl font-bold text-white text-shadow-lg px-3">午時水系列</span>
+              </div>
+            </div>
+          </a>
+          <a class="relative flex justify-center items-center" href="products.html">
+            <div class="w-full relative aspect-square bg-cover bg-center rounded-2xl overflow-hidden" style="background-image: url(img/blog/article-6.jpg)">
+              <div class="absolute inset-0 backdrop-blur-[2px] bg-white/25"></div>
+              <div class="absolute inset-0 flex items-center justify-center">
+                <span class="text-center text-pretty text-xl md:text-2xl font-bold text-white text-shadow-lg px-3">純精油<br />大豆蠟燭</span>
+              </div>
+            </div>
+          </a>
+          <a class="relative flex justify-center items-center" href="products.html">
+            <div class="w-full relative aspect-square bg-cover bg-center rounded-2xl overflow-hidden" style="background-image: url(img/blog/article-7.jpg)">
+              <div class="absolute inset-0 backdrop-blur-[2px] bg-white/25"></div>
+              <div class="absolute inset-0 flex items-center justify-center">
+                <span class="text-center text-pretty text-xl md:text-2xl font-bold text-white text-shadow-lg px-3">YuSoap<br />精油滾珠</span>
+              </div>
+            </div>
+          </a>
+          <a class="relative flex justify-center items-center" href="products.html">
+            <div class="w-full relative aspect-square bg-cover bg-center rounded-2xl overflow-hidden" style="background-image: url(img/blog/article-8.jpg)">
+              <div class="absolute inset-0 backdrop-blur-[2px] bg-white/25"></div>
+              <div class="absolute inset-0 flex items-center justify-center">
+                <span class="text-center text-pretty text-xl md:text-2xl font-bold text-white text-shadow-lg px-3">中 / 乾性<br />肌膚</span>
+              </div>
+            </div>
+          </a>
+          <a class="relative flex justify-center items-center" href="products.html">
+            <div class="w-full relative aspect-square bg-cover bg-center rounded-2xl overflow-hidden" style="background-image: url(img/blog/article-9.jpg)">
+              <div class="absolute inset-0 backdrop-blur-[2px] bg-white/25"></div>
+              <div class="absolute inset-0 flex items-center justify-center">
+                <span class="text-center text-pretty text-xl md:text-2xl font-bold text-white text-shadow-lg px-3">中 / 混和 / 油性<br />肌膚</span>
+              </div>
+            </div>
+          </a>
+        </div>
+      </section>
+
+      <!-- article -->
+      <section class="container mx-auto mt-20 px-3 md:px-5 lg:px-35">
+        <div class="relative inline-block pt-3 w-full mb-6">
+          <h2 class="text-kale-green w-fit text-2xl">手作生活筆記</h2>
+          <span class="-z-10 text-4xl absolute top-0 left-29 font-sacra text-sage-green text-nowrap">Blog </span>
+        </div>
+        <!-- 手作生活筆記 -->
+        <div class="w-full flex items-center justify-between relative">
+          <button id="artPrevBtn" class="py-2 pr-2 z-10">
+            <i class="fi fi-rr-angle-left text-gray-600 text-xl hover:text-dark-brown"></i>
+          </button>
+          <div id="carousel" class="flex gap-2 overflow-x-hidden scroll-smooth snap-x snap-mandatory">
+            <a class="whitespace-nowrap snap-center px-4 py-2 bg-turf-green rounded-full flex items-center justify-center gap-1" href="blog.html">
+              <div class="bg-cover bg-center w-5 h-5" style="background-image: url(img/Logo-leaf.png)"></div>
+              <span class="text-white font-bold text-lg">來店路線圖</span>
+            </a>
+            <a class="whitespace-nowrap snap-center px-4 py-2 bg-turf-green rounded-full flex items-center justify-center gap-1" href="blog.html">
+              <div class="bg-cover bg-center w-5 h-5" style="background-image: url(img/Logo-leaf.png)"></div>
+              <span class="text-white font-bold text-lg">關於皂</span>
+            </a>
+            <a class="whitespace-nowrap snap-center px-4 py-2 bg-turf-green rounded-full flex items-center justify-center gap-1" href="blog.html">
+              <div class="bg-cover bg-center w-5 h-5" style="background-image: url(img/Logo-leaf.png)"></div>
+              <span class="text-white font-bold text-lg">手工皂使用方式</span>
+            </a>
+            <a class="whitespace-nowrap snap-center px-4 py-2 bg-turf-green rounded-full flex items-center justify-center gap-1" href="blog.html">
+              <div class="bg-cover bg-center w-5 h-5" style="background-image: url(img/Logo-leaf.png)"></div>
+              <span class="text-white font-bold text-lg">手工皂教學</span>
+            </a>
+            <a class="whitespace-nowrap snap-center px-4 py-2 bg-turf-green rounded-full flex items-center justify-center gap-1" href="blog.html">
+              <div class="bg-cover bg-center w-5 h-5" style="background-image: url(img/Logo-leaf.png)"></div>
+              <span class="text-white font-bold text-lg">蠟燭的製作</span>
+            </a>
+            <a class="whitespace-nowrap snap-center px-4 py-2 bg-turf-green rounded-full flex items-center justify-center gap-1" href="blog.html">
+              <div class="bg-cover bg-center w-5 h-5" style="background-image: url(img/Logo-leaf.png)"></div>
+              <span class="text-white font-bold text-lg">蠟燭的使用</span>
+            </a>
+            <a class="whitespace-nowrap snap-center px-4 py-2 bg-turf-green rounded-full flex items-center justify-center gap-1" href="blog.html">
+              <div class="bg-cover bg-center w-5 h-5" style="background-image: url(img/Logo-leaf.png)"></div>
+              <span class="text-white font-bold text-lg">日本毛巾</span>
+            </a>
+            <a class="whitespace-nowrap snap-center px-4 py-2 bg-turf-green rounded-full flex items-center justify-center gap-1" href="blog.html">
+              <div class="bg-cover bg-center w-5 h-5" style="background-image: url(img/Logo-leaf.png)"></div>
+              <span class="text-white font-bold text-lg">採訪/訪問</span>
+            </a>
+            <a class="whitespace-nowrap snap-center px-4 py-2 bg-turf-green rounded-full flex items-center justify-center gap-1" href="blog.html">
+              <div class="bg-cover bg-center w-5 h-5" style="background-image: url(img/Logo-leaf.png)"></div>
+              <span class="text-white font-bold text-lg">重要消息</span>
+            </a>
+          </div>
+          <button id="artNextBtn" class="py-2 pl-2 z-10">
+            <i class="fi fi-rr-angle-right text-gray-600 hover:text-dark-brown text-xl"></i>
+          </button>
+        </div>
+
+        <!-- 文章卡片 -->
+        <div id="owl-carousel" class="owl-carousel owl-theme mt-6 flex">
+          <ul class="item">
+            <li class="flex flex-col h-full rounded-3xl group">
+              <a class="group-hover:bg-amber-50 rounded-3xl" href="news.html">
+                <div class="relative w-full aspect-3/2 bg-cover rounded-3xl bg-no-repeat bg-center" style="background-image: url(img/blog/article-4.jpg)"></div>
+
+                <div class="flex flex-col justify-between w-full px-4 sm:px-8 py-5 gap-2">
+                  <div class="flex flex-col">
+                    <p class="text-xs text-gray-400">Jan・28・2019</p>
+                    <h2 class="text-turf-green text-lg">SGS檢驗報告</h2>
+                  </div>
+                  <p class="line-clamp-2 text-dark-brown">檢驗報告的圖檔在最下面，我們雖然沒有本錢每一款肥皂都送測，但是因為每一款肥皂的成分都是大同小異，差別在於各種油的比例不同，因此我們選擇比較有代表性的產品來送樣，代表我們的工法以及原料還有製作過程其實是OK的，總共我們送測了.....</p>
+                  <div class="flex flex-row justify-between items-center mt-2">
+                    <div class="text-xs text-turf-green font-semibold">
+                      <p>人氣：30000</p>
+                      <p>分類：關於皂</p>
+                    </div>
+                    <button class="cursor-pointer max-h-10 px-5 py-2 rounded-full group-hover:text-white group-hover:bg-turf-green transition delay-150 duration-100 ease-in-out bg-sage-green text-turf-green flex items-center justify-center text-sm whitespace-nowrap">繼續閱讀</button>
+                  </div>
+                </div>
+              </a>
+            </li>
+          </ul>
+          <ul class="item">
+            <li class="flex flex-col h-full rounded-3xl group">
+              <a class="group-hover:bg-amber-50 rounded-3xl" href="news.html">
+                <div class="relative w-full aspect-3/2 bg-cover rounded-3xl bg-no-repeat bg-center" style="background-image: url(img/blog/article-5.jpg)"></div>
+
+                <div class="flex flex-col justify-between w-full px-4 sm:px-8 py-5 gap-2">
+                  <div class="flex flex-col">
+                    <p class="text-xs text-gray-400">Jan・28・2019</p>
+                    <h2 class="text-turf-green text-lg">YuSoap營業項目</h2>
+                  </div>
+                  <p class="line-clamp-2 text-dark-brown">檢驗報告的圖檔在最下面，我們雖然沒有本錢每一款肥皂都送測，但是因為每一款肥皂的成分都是大同小異，差別在於各種油的比例不同，因此我們選擇比較有代表性的產品來送樣，代表我們的工法以及原料還有製作過程其實是OK的，總共我們送測了.....</p>
+                  <div class="flex flex-row justify-between items-center mt-2">
+                    <div class="text-xs text-turf-green font-semibold">
+                      <p>人氣：30000</p>
+                      <p>分類：關於皂</p>
+                    </div>
+                    <button class="cursor-pointer max-h-10 px-5 py-2 rounded-full group-hover:text-white group-hover:bg-turf-green transition delay-150 duration-100 ease-in-out bg-sage-green text-turf-green flex items-center justify-center text-sm whitespace-nowrap">繼續閱讀</button>
+                  </div>
+                </div>
+              </a>
+            </li>
+          </ul>
+          <ul class="item">
+            <li class="flex flex-col h-full rounded-3xl group flex-1">
+              <a class="group-hover:bg-amber-50 rounded-3xl" href="news.html">
+                <div class="relative w-full aspect-3/2 bg-cover rounded-3xl bg-no-repeat bg-center" style="background-image: url(img/blog/article-6.jpg)"></div>
+                <div class="flex flex-col justify-between w-full px-4 sm:px-8 py-5 gap-2">
+                  <div class="flex flex-col">
+                    <p class="text-xs text-gray-400">Jan・28・2019</p>
+                    <h2 class="text-turf-green text-lg">嬰兒手工肥皂挑選</h2>
+                  </div>
+                  <p class="line-clamp-2 text-dark-brown">檢驗報告的圖檔在最下面，我們雖然沒有本錢每一款肥皂都送測，但是因為每一款肥皂的成分都是大同小異，差別在於各種油的比例不同，因此我們選擇比較有代表性的產品來送樣，代表我們的工法以及原料還有製作過程其實是OK的，總共我們送測了.....</p>
+                  <div class="flex flex-row justify-between items-center mt-2">
+                    <div class="text-xs text-turf-green font-semibold">
+                      <p>人氣：30000</p>
+                      <p>分類：關於皂</p>
+                    </div>
+                    <button class="cursor-pointer max-h-10 px-5 py-2 rounded-full group-hover:text-white group-hover:bg-turf-green transition delay-150 duration-100 ease-in-out bg-sage-green text-turf-green flex items-center justify-center text-sm whitespace-nowrap">繼續閱讀</button>
+                  </div>
+                </div>
+              </a>
+            </li>
+          </ul>
+        </div>
+        <div class="flex justify-end gap-2 md:gap-3 mt-3">
+          <button id="prevBtn" class="text-white bg-sage-green p-1 md:p-3 rounded-full hover:bg-turf-green hover:text-white transition">
+            <i class="px-1 bi bi-caret-left-fill"></i>
+          </button>
+          <button id="nextBtn" class="text-white bg-sage-green p-1 md:p-3 rounded-full hover:bg-turf-green hover:text-white transition">
+            <i class="px-1 bi bi-caret-right-fill"></i>
+          </button>
+        </div>
+      </section>
+
+      <section class="container mx-auto mt-5 mb-5 md:mb-20 md:mt-20 px-3 md:px-5 lg:px-35 sm:px-10">
+        <ul class="grid grid-cols-2 lg:grid-cols-4 gap-3 w-full h-full items-stretch">
+          <li class="flex flex-col h-full">
+            <div class="flex flex-col items-center flex-1 w-full sm:px-8 py-5 text-center lg:border-r-1 border-turf-green border-0">
+              <img class="w-25 filter invert" src="img/SVG/icon-7.svg" alt="" />
+              <h3 class="text-turf-green">手工製作</h3>
+              <span class="flex flex-col items-center justify-between gap-5">
+                <p class="text-dark-brown">不只是產品，更是心意的傳遞。</p>
+              </span>
+            </div>
+          </li>
+          <li class="flex flex-col h-full">
+            <div class="flex flex-col items-center flex-1 w-full sm:px-8 py-5 text-center lg:border-r-1 border-turf-green border-0">
+              <img class="w-25 filter invert" src="img/SVG/icon-4.svg" alt="" />
+              <h3 class="text-turf-green">環境友善</h3>
+              <span class="flex flex-col items-center justify-between gap-5">
+                <p class="text-dark-brown">簡單生活，從一塊肥皂開始。</p>
+              </span>
+            </div>
+          </li>
+          <li class="flex flex-col h-full">
+            <div class="flex flex-col items-center flex-1 w-full sm:px-8 py-5 text-center lg:border-r-1 border-turf-green border-0">
+              <img class="w-25 filter invert" src="img/SVG/icon-9.svg" alt="" />
+              <h3 class="text-turf-green">嚴格檢驗</h3>
+              <span class="flex flex-col items-center justify-between gap-5">
+                <p class="text-dark-brown">出貨前皆經 pH 測試，確保成熟安全。</p>
+              </span>
+            </div>
+          </li>
+          <li class="flex flex-col h-full">
+            <div class="flex flex-col items-center flex-1 w-full sm:px-8 py-5 text-center">
+              <img class="w-25 filter invert" src="img/SVG/icon-3.svg" alt="" />
+              <h3 class="text-turf-green">自然香氛</h3>
+              <span class="flex flex-col items-center justify-between gap-5">
+                <p class="text-dark-brown">精油調香，溫和不刺鼻，自然療癒。</p>
+              </span>
+            </div>
+          </li>
+        </ul>
+      </section>
+    </main>
+
+    <footer class="relative">
+      <div class="bg-kale-green pt-13 w-full h-full bg-cover bg-[url(../img/SVG/footer-leaf.svg)] bg-position-[center_top_4rem] bg-no-repeat 2xl:bg-position-[center_top_3rem] px-3 md:px-5 lg:px-35">
+        <div class="absolute inset-0 bg-linear-to-t from-kale-green/70 to-transparent"></div>
+        <div class="container relative mx-auto flex flex-col justify-center items-center gap-2 pb-5">
+          <img class="w-50" src="img/Logo.png" alt="YuShop|手工肥皂" />
+          <span class="flex items-center my-5 gap-3">
+            <button class="cursor-pointer text-white transition delay-150 duration-100 ease-in-out hover:text-sage-green flex items-center justify-center">
+              <a href="https://www.facebook.com/profile.php?id=100078377745229#">
+                <i class="text-3xl fi fi-brands-facebook"></i>
+              </a>
+            </button>
+            <button class="cursor-pointer text-white transition delay-150 duration-100 ease-in-out hover:text-sage-green flex items-center justify-center">
+              <a href="#">
+                <i class="text-3xl fi fi-brands-line"></i>
+              </a>
+            </button>
+            <button id="copyPhoneNumberBtn" data-phone-number="0932157002" class="cursor-pointer text-white transition delay-150 duration-100 ease-in-out hover:text-sage-green flex items-center justify-center">
+              <i class="text-3xl fi fi-sr-circle-phone-flip"></i>
+            </button>
+          </span>
+          <div class="w-full text-center border-t-1 border-sage-green flex flex-col sm:flex-row justify-between gap-2">
+            <p class="text-sm mt-3 text-white">COPYRIGHT © 2025 YuSoap-天然手工皂　All rights reserved.</p>
+            <a class="text-sm sm:mt-3 text-white" class="" href="https://www.ozchamp.com/"><p>Web Designed by OZCHAMP.</p></a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <a href="#" id="scroll" style="display: none"><span></span></a>
+
+    <!-- alpine.js -->
+    <script src="js/alpinejs3.12.3.js"></script>
+
+    <!-- jquery.js -->
+    <script src="js/jquery.js"></script>
+
+    <!-- main -->
+    <script src="js/main.js"></script>
+
+    <!-- Swiper -->
+    <script src="js/swiper-bundle.min.js"></script>
+    <script>
+      let swiper = new Swiper(".mySwiper", {
+        spaceBetween: 30,
+        centeredSlides: true,
+        loop: true,
+        autoplay: {
+          delay: 5000,
+          disableOnInteraction: false
+        },
+        pagination: {
+          el: ".swiper-pagination",
+          clickable: true
+        },
+        navigation: {
+          nextEl: ".swiper-button-next",
+          prevEl: ".swiper-button-prev"
+        }
+      });
+    </script>
+
+    <!-- Owl -->
+    <script src="js/jquery.min.js"></script>
+    <script src="js/owl.carousel.js"></script>
+    <script>
+      let owl = $(".owl-carousel");
+      $(".owl-carousel").owlCarousel({
+        loop: true,
+        margin: 15,
+        nav: false,
+        dots: false,
+        responsive: {
+          0: {
+            items: 1
+          },
+          600: {
+            items: 2
+          },
+          1000: {
+            items: 3
+          }
+        }
+      });
+      $("#nextBtn").click(function () {
+        owl.trigger("next.owl.carousel");
+      });
+      $("#prevBtn").click(function () {
+        owl.trigger("prev.owl.carousel");
+      });
+    </script>
+
+    <!-- Sweetalert2 -->
+    <script src="js/sweetalert2.all.min.js"></script>
+
+    <!-- copy number  -->
+    <script>
+      document.getElementById("copyPhoneNumberBtn").addEventListener("click", function () {
+        const phoneNumber = this.getAttribute("data-phone-number");
+
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard
+            .writeText(phoneNumber)
+            .then(() => {
+              Swal.fire({
+                title: "成功",
+                text: "電話號碼已複製！",
+                icon: "success",
+                iconColor: "#c6d1c0",
+                confirmButtonText: "確定",
+                confirmButtonColor: "#6b8865",
+                showConfirmButton: true
+              });
+            })
+            .catch((err) => {
+              console.error("複製失敗: ", err);
+              Swal.fire({
+                title: "錯誤",
+                text: "複製失敗，請再試一次。",
+                icon: "error",
+                iconColor: "#e74c3c"
+              });
+            });
+        } else {
+          const textarea = document.createElement("textarea");
+          textarea.value = phoneNumber;
+          textarea.setAttribute("readonly", "");
+          textarea.style.position = "absolute";
+          textarea.style.left = "-9999px";
+          document.body.appendChild(textarea);
+          textarea.select();
+          try {
+            document.execCommand("copy");
+            alert("電話號碼已複製！");
+          } catch (err) {
+            console.error("複製失敗 (fallback): ", err);
+            alert("複製失敗，請手動複製。");
+          } finally {
+            document.body.removeChild(textarea);
+          }
+        }
+      });
+    </script>
+
+    <!-- Back to top -->
+    <script src="js/jquery-3.7.1.js"></script>
+    <script>
+      $(document).ready(function () {
+        $(window).scroll(function () {
+          if ($(this).scrollTop() > 100) {
+            $("#scroll").fadeIn();
+          } else {
+            $("#scroll").fadeOut();
+          }
+        });
+        $("#scroll").click(function () {
+          $("html, body").animate({scrollTop: 0}, 600);
+          return false;
+        });
+      });
+    </script>
+
+    <!-- loginBtn -->
+    <script>
+      document.querySelectorAll(".loginBtn").forEach((btn) => {
+        btn.addEventListener("click", () => {
+          Swal.fire({
+            title: "會員登入",
+            html: `
+            <div>
+              <input style="
+                width: 100%;
+                margin: auto;
+                margin-top: 20px
+              " type="email" id="swal-input-email" class="swal2-input" placeholder="請輸入Email">
+            </div>
+            <div>
+              <input style="
+                width: 100%;
+                margin: auto;
+                margin-top: 20px
+              " type="password" id="swal-input-password" class="swal2-input" placeholder="請輸入密碼">
+            </div>
+            <div
+              style="
+                width: 100%;
+                margin: auto;
+                margin-top: 20px
+              "
+            >
+              <a
+                onmouseover="this.style.color='#6b8865'"
+                onmouseout="this.style.color='#c6d1c0'"
+                href="forgotten.html"
+                style="color: var(--color-sage-green);display: block;"
+                >忘記密碼
+              </a>
+              <p>
+                還沒有帳號，請點擊<a
+                  onmouseover="this.style.color='#6b8865'"
+                  onmouseout="this.style.color='#c6d1c0'"
+                  href="register.html"
+                  style="color: var(--color-sage-green);"
+                  >註冊會員</a
+                >
+              </p>
+            </div>
+            <div class="border-b-1 border-gray-200 relative text-center my-4">
+              <span class="px-2 bg-white relative -bottom-3 text-gray-300">使用其他方式登入</span>
+            </div>
+            <a class="flex justify-center mt-7" href="#">
+              <img class="w-15 h-15 hover:brightness-90" src="img/icon-line.webp" alt="" />
+            </a>
+          `,
+            focusConfirm: false,
+            showCancelButton: true,
+            confirmButtonText: "登入",
+            confirmButtonColor: "#6b8865",
+            cancelButtonText: "取消",
+            preConfirm: () => {
+              const email = document.getElementById("swal-input-email").value;
+              const password = document.getElementById("swal-input-password").value;
+
+              if (!email || !password) {
+                Swal.showValidationMessage("請輸入 Email 和密碼");
+                return false;
+              }
+
+              return {email, password};
+            }
+          }).then((result) => {
+            if (result.isConfirmed && result.value) {
+              console.log("登入資料：", result.value);
+              Swal.fire({
+                title: "登入成功",
+                icon: "success",
+                iconColor: "#c6d1c0",
+                confirmButtonText: "確定",
+                confirmButtonColor: "#6b8865",
+                showConfirmButton: true
+              }).then((result) => {
+                window.location.href = "member.html";
+              });
+            }
+          });
+        });
+      });
+    </script>
+
+    <script>
+      const carousel = document.getElementById("carousel");
+      const items = carousel.querySelectorAll("a");
+      const prevBtn = document.getElementById("artPrevBtn");
+      const nextBtn = document.getElementById("artNextBtn");
+
+      let index = 0;
+      const gap = 8;
+      const itemWidth = items[0].offsetWidth + gap;
+
+      function isMobile() {
+        return window.innerWidth < 768;
+      }
+
+      function updateCarousel() {
+        carousel.scrollTo({
+          left: index * itemWidth,
+          behavior: "smooth"
+        });
+      }
+
+      nextBtn.addEventListener("click", () => {
+        if (isMobile()) {
+          if (carousel.scrollLeft + carousel.offsetWidth >= carousel.scrollWidth - 10) {
+            carousel.scrollTo({left: 0, behavior: "smooth"});
+          } else {
+            carousel.scrollBy({left: itemWidth, behavior: "smooth"});
+          }
+        } else {
+          index = (index + 1) % items.length;
+          updateCarousel();
+        }
+      });
+
+      prevBtn.addEventListener("click", () => {
+        if (isMobile()) {
+          if (carousel.scrollLeft <= 0) {
+            carousel.scrollTo({left: carousel.scrollWidth, behavior: "smooth"});
+          } else {
+            carousel.scrollBy({left: -itemWidth, behavior: "smooth"});
+          }
+        } else {
+          index = (index - 1 + items.length) % items.length;
+          updateCarousel();
+        }
+      });
+
+      let isDown = false;
+      let startX;
+      let scrollLeft;
+
+      carousel.addEventListener("mousedown", (e) => {
+        isDown = true;
+        carousel.classList.add("cursor-grabbing");
+        startX = e.pageX - carousel.offsetLeft;
+        scrollLeft = carousel.scrollLeft;
+      });
+      carousel.addEventListener("mouseleave", () => {
+        isDown = false;
+        carousel.classList.remove("cursor-grabbing");
+      });
+      carousel.addEventListener("mouseup", () => {
+        isDown = false;
+        carousel.classList.remove("cursor-grabbing");
+      });
+      carousel.addEventListener("mousemove", (e) => {
+        if (!isDown) return;
+        e.preventDefault();
+        const x = e.pageX - carousel.offsetLeft;
+        const walk = (x - startX) * 1.5;
+        carousel.scrollLeft = scrollLeft - walk;
+      });
+
+      let touchStartX = 0;
+      carousel.addEventListener("touchstart", (e) => {
+        touchStartX = e.touches[0].pageX;
+        scrollLeft = carousel.scrollLeft;
+      });
+      carousel.addEventListener("touchmove", (e) => {
+        const touchX = e.touches[0].pageX;
+        const walk = (touchX - touchStartX) * 1.5;
+        carousel.scrollLeft = scrollLeft - walk;
+      });
+    </script>
+  </body>
+</html>

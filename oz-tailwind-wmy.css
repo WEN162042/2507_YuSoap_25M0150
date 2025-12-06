@@ -1,0 +1,16 @@
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100..900&family=Sacramento&display=swap");
+@import "tailwindcss";
+
+@theme {
+  --color-sage-green: #c6d1c0;
+  --color-turf-green: #6b8865;
+  --color-kale-green: #5d7347;
+  --color-dark-brown: #3f210f;
+  --color-warning-red: #e74c3c;
+
+  --font-sacra: "Sacramento", "cursive", "草寫";
+
+  --text-tiny: 12px;
+
+  --inset-shadow-img: inset 0 0px 4px rgba(0, 0, 0, 0.5);
+}

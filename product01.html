@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>YuShop | 商品列表-商品詳細頁</title>
+
+    <!-- Favicon -->
+    <link href="img/favicon/apple-touch-icon.png" rel="apple-touch-icon" sizes="180x180" />
+    <link type="image/png" href="img/favicon/favicon-32x32.png" rel="icon" sizes="32x32" />
+    <link type="image/png" href="img/favicon/favicon-16x16.png" rel="icon" sizes="16x16" />
+    <link type="image/x-icon" href="img/favicon/favicon.ico" rel="icon" sizes="16x16" />
+
+    <!-- Tailwind CSS -->
+    <link rel="stylesheet" href="css/oz-tailwind.css" />
+    <link rel="stylesheet" href="css/oz-wmy.css" />
+
+    <!-- Swiper -->
+    <link rel="stylesheet" href="css/oz-products.css" />
+    <link rel="stylesheet" href="css/swiper-bundle.min.css" />
+
+    <!-- Owl Stylesheets -->
+    <link rel="stylesheet" href="css/owl.carousel.min.css" />
+    <link rel="stylesheet" href="css/owl.theme.default.min.css" />
+
+    <!-- Sweetalert2 -->
+    <link rel="stylesheet" href="css/sweetalert2.min.css" />
+  </head>
+  <body>
+    <div id="preloader" class="preloader fixed z-50 left-0 top-0 right-0 bottom-0 bg-white flex justify-center items-center">
+      <div class="loader"></div>
+    </div>
+
+    <header class="fixed top-0 left-0 w-full z-50 py-2 bg-sage-green shadow-sm/20">
+      <div class="container relative mx-auto flex justify-between items-center w-full h-full px-3 md:px-5 lg:px-35" x-data="{ showMenu: false } ">
+        <a class="logo block text-center w-1/2 md:w-1/5" href="index.html"><img class="w-40" src="img/Logo.png" alt="" /></a>
+
+        <!-- navMenu button -->
+        <div @click="showMenu = !showMenu" class="block ml-0 sm:ml-2 border border-turf-green text-turf-green hover:bg-white/50 cursor-pointer lg:hidden order-last">
+          <span class="flex items-center justify-center w-10 h-10 text-2xl"><i class="bi bi-list"></i></span>
+        </div>
+
+        <div class="justify-center items-start lg:items-center hidden w-full h-auto lg:relative lg:flex" :class="{'flex absolute z-50 left-0 top-[50px] bg-white/90 backdrop-blur-lg shadow-xl shadow-gray-500/20 rounded-b-3xl': showMenu, 'hidden': !showMenu }">
+          <nav class="flex flex-col justify-center lg:justify-end items-start lg:items-center w-full lg:flex-row justify-items-stretch sm:justity-center sm:items-center pb-5 lg:pb-0">
+            <ul class="nav w-full flex flex-wrap tracking-wider lg:justify-end lg:items-center gap-3 p-3 lg:p-0">
+              <li class="relative lg:w-auto w-full">
+                <a href="products.html" class="block p-3 text-dark-brown hover:text-sage-green md:hover:text-white">線上購物</a>
+              </li>
+              <li class="relative lg:w-auto w-full">
+                <a href="blog.html" class="block p-3 text-dark-brown hover:text-sage-green md:hover:text-white">手作生活筆記</a>
+              </li>
+              <li class="relative lg:w-auto w-full">
+                <a href="contact.html" class="block p-3 text-dark-brown hover:text-sage-green md:hover:text-white">聯絡我們</a>
+              </li>
+              <li class="relative w-auto pt-3 lg:p-0">
+                <a href="member.html" class="cursor-pointer px-4 py-1 rounded-full text-white bg-turf-green transition delay-150 duration-100 ease-in-out hover:brightness-85 flex items-center"><i class="flex items-center pr-2 fi fi-sr-user"></i>元伸科技，您好！</a>
+              </li>
+              <li class="relative pt-3 lg:p-0">
+                <a href="shop-cart.html" class="cursor-pointer px-4 py-1 rounded-full text-white bg-turf-green transition delay-150 duration-100 ease-in-out hover:brightness-85 flex items-center"><i class="pr-2 fi fi-rr-shopping-cart"></i>購物車</a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section class="container mx-auto mt-20 md:mt-30 mb-10 px-3 md:px-5 lg:px-35">
+        <ul class="flex flex-wrap items-center gap-2">
+          <li class="flex items-center">
+            <a href="index.html" class="text-kale-green hover:text-sage-green hover:underline">首頁</a>
+          </li>
+          <li class="flex items-center before:content-['/'] before:px-2 before:text-sage-green">
+            <a href="products.html" class="text-kale-green hover:text-sage-green hover:underline">線上購物</a>
+          </li>
+          <li class="flex items-center before:content-['/'] before:px-2 before:text-sage-green">
+            <span class="text-sage-green">午時水抹草平安皂(寶寶用)</span>
+          </li>
+        </ul>
+      </section>
+
+      <section class="container mx-auto mb-10 px-3 md:px-5 lg:px-35">
+        <div class="w-full flex flex-wrap text-start mt-10">
+          <div class="order-2 md:order-1 w-full flex flex-wrap items-center p-2">
+            <div class="w-full md:w-1/2 mb-4">
+              <h1 class="text-3xl text-turf-green">YuSoap - 午時水 酪梨平安手工皂</h1>
+            </div>
+            <div class="w-full md:w-1/2 mb-4 flex flex-row md:justify-end gap-2">
+              <span class="text-lg text-gray-400">分享：</span>
+              <a href="#"><img class="w-8 hover:brightness-90" src="img/icon1.png" alt="Facebook" /></a>
+              <a href="#"><img class="w-8 hover:brightness-90" src="img/icon2.png" alt="X.com" /></a>
+              <a href="#"><img class="w-8 hover:brightness-90" src="img/icon3.png" alt="Plurk" /></a>
+              <a href="#"><img class="w-8 hover:brightness-90" src="img/icon4.png" alt="Google One" /></a>
+            </div>
+          </div>
+
+          <div class="order-1 md:order-2 flex flex-col w-full md:w-1/2 md:pr-10 p-2">
+            <div class="relative">
+              <img id="mainImage" class="w-full h-[300px] object-cover rounded-2xl" src="img/shop-01.jpg" alt="主圖" />
+
+              <button id="prevBtn" class="cursor-pointer group/col absolute left-2 top-1/2 -translate-y-1/2 hover:bg-white/40 rounded-full p-2 hover:shadow">
+                <i class="flex items-center justify-center fi fi-rr-angle-left text-dark-brown/50 text-2xl group-hover/col:text-dark-brown"></i>
+              </button>
+              <button id="nextBtn" class="cursor-pointer group/col absolute right-2 top-1/2 -translate-y-1/2 hover:bg-white/40 rounded-full p-2 hover:shadow">
+                <i class="flex items-center justify-center fi fi-rr-angle-right text-dark-brown/50 text-2xl group-hover/col:text-dark-brown"></i>
+              </button>
+            </div>
+
+            <div class="flex justify-start mt-2">
+              <img class="thumbnail w-1/4 max-h-[100px] object-cover p-1 cursor-pointer opacity-100 border-2 border-transparent rounded-lg hover:border-gray-200" src="img/shop-01.jpg" alt="縮圖1" />
+              <img class="thumbnail w-1/4 max-h-[100px] object-cover p-1 cursor-pointer opacity-60 border-2 border-transparent rounded-lg hover:border-gray-200" src="img/shop-02.jpg" alt="縮圖2" />
+              <img class="thumbnail w-1/4 max-h-[100px] object-cover p-1 cursor-pointer opacity-60 border-2 border-transparent rounded-lg hover:border-gray-200" src="img/shop-03.jpg" alt="縮圖3" />
+            </div>
+          </div>
+
+          <div class="order-3 md:order-3 w-full md:w-1/2 mx-auto mb-5 p-2 flex flex-col gap-8">
+            <div>
+              <p class="text-lg text-dark-brown">商品編號：000000001</p>
+              <p class="text-lg text-dark-brown">精油：檜木精油</p>
+              <p class="text-lg text-dark-brown">添加物：植物粉（抹草，芙蓉，艾草，香茅）</p>
+            </div>
+
+            <div>
+              <h2 class="text-3xl text-turf-green mb-2">促銷價：NT$ 195</h2>
+              <span class="text-lg text-dark-brown">直購價：NT$ 195</span>
+            </div>
+
+            <div>
+              <span class="text-lg text-dark-brown flex items-center mb-2">
+                <span class="whitespace-nowrap">顏色：</span>
+                <select class="w-full md:w-auto text-base h-10 px-3 border border-gray-200 rounded-sm text-dark-brown text-center" name="text">
+                  <option value="" disabled="" selected="">請選擇</option>
+                  <option value="">甜橙</option>
+                </select>
+              </span>
+              <div class="w-full md:w-50 flex gap-1">
+                <button class="cursor-pointer px-3 py-2 bg-gray-200 text-white hover:bg-gray-300 hover:outline-1 hover:outline-gray-400 rounded-l-sm"><i class="fi fi-br-minus"></i></button>
+                <input class="cursor-pointer text-center text-lg w-full h-10 border-gray-200 focus:outline-none focus:border-gray-300 border-1 focus:ring-1 focus:ring-gray-400" type="number" step="1" min="1" max="100" value="1" />
+                <button class="cursor-pointer px-3 py-2 bg-gray-200 text-white hover:bg-gray-300 hover:outline-1 hover:outline-gray-400 rounded-r-sm"><i class="fi fi-br-plus"></i></button>
+              </div>
+            </div>
+
+            <div class="w-full flex gap-4">
+              <button class="cursor-pointer md:w-50 px-3 py-2 bg-turf-green text-white hover:brightness-85 rounded-sm flex justify-center items-center"><i class="text-2xl pr-2 fi fi-rr-shopping-cart-add"></i>加入購物車</button>
+              <a class="cursor-pointer md:w-50 px-3 py-2 bg-turf-green text-white hover:brightness-85 rounded-sm flex justify-center items-center" href="shop-cart.html"><i class="text-2xl pr-2 fi fi-rr-shopping-cart"></i>立即購買</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="container mx-auto mb-20 px-3 md:px-5 lg:px-35">
+        <div class="flex border-b-1 border-gray-300">
+          <button class="tablinks md:w-auto w-full rounded-t-sm px-4 py-2 text-kale-green text-lg text-pretty transition hover:bg-sage-green" onclick="openCity(event, 'Description')" id="defaultOpen">產品詳情</button>
+          <button class="tablinks md:w-auto w-full rounded-t-sm px-4 py-2 text-kale-green text-lg text-pretty transition hover:bg-sage-green" onclick="openCity(event, 'Cost')">運費說明</button>
+          <button class="tablinks md:w-auto w-full rounded-t-sm px-4 py-2 text-kale-green text-lg text-pretty transition hover:bg-sage-green" onclick="openCity(event, 'Notice')">注意事項</button>
+        </div>
+
+        <!-- Tab content -->
+        <div id="Description" class="tabcontent hidden border border-t-0 border-gray-300 p-4 rounded-b-sm">
+          <!-- fck-box start-->
+          <div class="fck-box">
+            <img class="w-full md:w-100 pb-5" src="img/shop-01.jpg" alt="" />
+            <h3 class="text-turf-green text-3xl font-semibold">產品詳情</h3>
+            <p class="text-base text-dark-brown text-pretty pb-3">這塊皂用了酪梨油，是屬於能夠好好的清潔卻又有滋潤度的油品，洗起來的感覺清爽不乾澀，泡泡豐富，氣味溫和沉穩，木質調的精油，讓一整天煩躁忙碌的心可以安穩下來。</p>
+            <p class="text-base text-dark-brown text-pretty pb-5">皂體裡面的顏色是平安粉，平安粉是艾草+香茅+芙蓉+抹草四種植物粉混合而成，民俗上也能夠讓我們心沉穩平靜。</p>
+
+            <h3 class="text-turf-green text-3xl font-semibold">適用膚質</h3>
+            <p class="text-base text-dark-brown text-pretty">秋冬：適合偏油性肌膚</p>
+            <p class="text-base text-dark-brown text-pretty pb-5">春夏：適合中性與油性膚質</p>
+
+            <h3 class="text-turf-green text-3xl font-semibold">成分</h3>
+            <p class="text-base text-dark-brown text-pretty pb-5">橄欖油、棕櫚油、棕櫚核仁油、芥花油、酪梨油、檜木精油、平安粉、NaOH。</p>
+
+            <h3 class="text-turf-green text-xl font-semibold">尺寸／重量</h3>
+            <p class="text-base text-dark-brown text-pretty">6*6*3cm，90~110公克</p>
+            <p class="text-base text-dark-brown text-pretty pb-5">手工切皂，尺寸與外型會有誤差為正常現象唷！</p>
+
+            <p class="text-base text-red-600 text-pretty pb-3">本產品已投保一千萬產品責任險</p>
+          </div>
+          <!-- fck-box end-->
+        </div>
+
+        <div id="Cost" class="tabcontent hidden border border-t-0 border-gray-300 p-4">
+          <!-- fck-box start-->
+          <div class="fck-box">
+            <ul class="list-inside list-decimal">
+              <li class="text-base text-dark-brown text-pretty pb-3">寄到家裡且購買數量大於3塊 → 郵局便利箱寄送：65元</li>
+              <li class="text-base text-dark-brown text-pretty pb-3">寄到家裡且購買數量1～3塊 → 郵局便利袋寄送：40元</li>
+              <li class="text-base text-dark-brown text-pretty pb-3">寄到郵政信箱 → 郵局寄送：65元</li>
+              <li class="text-base text-dark-brown text-pretty pb-3">7-11店到店，先付款後取貨：60元</li>
+              <li class="text-base text-dark-brown text-pretty pb-3">全家／萊爾富／OK便利商店，先付款後取貨 :：元</li>
+              <li class="text-base text-dark-brown text-pretty pb-3">全家／萊爾富／OK便利商店，取貨時付款：70元</li>
+              <li class="text-base text-dark-brown text-pretty pb-3">免費配送：購物滿1500元</li>
+            </ul>
+          </div>
+          <!-- fck-box end-->
+        </div>
+
+        <div id="Notice" class="tabcontent hidden border border-t-0 border-gray-300 p-4">
+          <!-- fck-box start-->
+          <div class="fck-box">
+            <p class="text-base text-dark-brown text-pretty pb-5">手工皂雖然為天然成分，但肌膚敏感者在使用前還是需要做過敏測試，請先試洗手肘內側小區域，如無過敏反應再用來沐浴清潔。</p>
+            <p class="text-base text-dark-brown text-pretty pb-5">手工皂內含天然甘油成分，甘油為保養品常用天然保濕劑，是非常容易吸水的物質，故手工皂使用上較一般市售香皂容易軟爛，使用時避免以水直接沖到皂體，使用後須放置在不會積水的皂盤上，並保持乾燥通風，可延長手工皂使用壽命。</p>
+            <p class="text-base text-dark-brown text-pretty pb-5">賣場的各種手工皂只有分不同膚質使用，洗臉或沐浴只要膚質一樣皆可通用。</p>
+            <p class="text-base text-dark-brown text-pretty pb-3">因皂內無添加起泡劑，可搭配沐浴巾或皂袋使用，可以增加起泡量。</p>
+          </div>
+          <!-- fck-box end-->
+        </div>
+      </section>
+
+      <section class="container mx-auto mb-10 px-3 md:px-5 lg:px-35">
+        <div class="w-full relative inline-block pt-3">
+          <h2 class="text-kale-green w-fit mb-6 text-2xl">同類商品</h2>
+          <span class="-z-10 text-4xl absolute top-0 left-18 font-sacra text-sage-green text-nowrap"> Product </span>
+          <div class="absolute top-0 right-0 flex gap-2 md:gap-3 mt-3">
+            <button id="owlPrevBtn" class="text-white bg-sage-green p-1 md:p-3 rounded-full hover:bg-turf-green hover:text-white transition">
+              <i class="px-1 bi bi-caret-left-fill"></i>
+            </button>
+            <button id="owlNextBtn" class="text-white bg-sage-green p-1 md:p-3 rounded-full hover:bg-turf-green hover:text-white transition">
+              <i class="px-1 bi bi-caret-right-fill"></i>
+            </button>
+          </div>
+        </div>
+
+        <div id="owl-carousel" class="owl-carousel owl-theme flex">
+          <ul class="item">
+            <li class="pb-8">
+              <a class="" href="product01.html">
+                <div class="w-full pb-2">
+                  <img class="rounded-2xl w-full lg:h-[240px] object-cover object-center" src="img/shop-01.jpg" alt="" />
+                </div>
+                <div class="w-full text-center">
+                  <h2 class="text-lg text-turf-green">午時水抹草平安皂(寶寶用)</h2>
+                  <p class="text-dark-brown">直購價：NT$195</p>
+                </div>
+              </a>
+            </li>
+          </ul>
+          <ul class="item">
+            <li class="pb-8">
+              <a class="" href="product01.html">
+                <div class="w-full pb-2">
+                  <img class="rounded-2xl w-full lg:h-[240px] object-cover object-center" src="img/shop-01.jpg" alt="" />
+                </div>
+                <div class="w-full text-center">
+                  <h2 class="text-lg text-turf-green">午時水抹草平安皂(寶寶用)</h2>
+                  <p class="text-dark-brown">直購價：NT$195</p>
+                </div>
+              </a>
+            </li>
+          </ul>
+          <ul class="item">
+            <li class="pb-8">
+              <a class="" href="product01.html">
+                <div class="w-full pb-2">
+                  <img class="rounded-2xl w-full lg:h-[240px] object-cover object-center" src="img/shop-01.jpg" alt="" />
+                </div>
+                <div class="w-full text-center">
+                  <h2 class="text-lg text-turf-green">午時水抹草平安皂(寶寶用)</h2>
+                  <p class="text-dark-brown">直購價：NT$195</p>
+                </div>
+              </a>
+            </li>
+          </ul>
+          <ul class="item">
+            <li class="pb-8">
+              <a class="" href="product01.html">
+                <div class="w-full pb-2">
+                  <img class="rounded-2xl w-full lg:h-[240px] object-cover object-center" src="img/shop-01.jpg" alt="" />
+                </div>
+                <div class="w-full text-center">
+                  <h2 class="text-lg text-turf-green">午時水抹草平安皂(寶寶用)</h2>
+                  <p class="text-dark-brown">直購價：NT$195</p>
+                </div>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </section>
+    </main>
+
+    <footer class="relative">
+      <div class="bg-kale-green pt-13 w-full h-full bg-cover bg-[url(../img/SVG/footer-leaf.svg)] bg-position-[center_top_4rem] bg-no-repeat 2xl:bg-position-[center_top_3rem] px-3 md:px-5">
+        <div class="absolute inset-0 bg-linear-to-t from-kale-green/70 to-transparent"></div>
+        <div class="container relative mx-auto flex flex-col justify-center items-center gap-2 pb-5">
+          <img class="w-50" src="img/Logo.png" alt="YuShop|手工肥皂" />
+          <span class="flex items-center my-5 gap-3">
+            <button class="cursor-pointer text-white transition delay-150 duration-100 ease-in-out hover:text-sage-green flex items-center justify-center">
+              <a href="https://www.facebook.com/profile.php?id=100078377745229#">
+                <i class="text-3xl fi fi-brands-facebook"></i>
+              </a>
+            </button>
+            <button class="cursor-pointer text-white transition delay-150 duration-100 ease-in-out hover:text-sage-green flex items-center justify-center">
+              <a href="#">
+                <i class="text-3xl fi fi-brands-line"></i>
+              </a>
+            </button>
+            <button id="copyPhoneNumberBtn" data-phone-number="0932157002" class="cursor-pointer text-white transition delay-150 duration-100 ease-in-out hover:text-sage-green flex items-center justify-center">
+              <i class="text-3xl fi fi-sr-circle-phone-flip"></i>
+            </button>
+          </span>
+          <div class="w-full text-center border-t-1 border-sage-green flex flex-col sm:flex-row justify-between gap-2">
+            <p class="text-sm mt-3 text-white">COPYRIGHT © 2025 YuSoap-天然手工皂　All rights reserved.</p>
+            <a class="text-sm sm:mt-3 text-white" class="" href="https://www.ozchamp.com/"><p>Web Designed by OZCHAMP.</p></a>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <a href="#" id="scroll" style="display: none"><span></span></a>
+
+    <!-- alpine.js -->
+    <script src="js/alpinejs3.12.3.js"></script>
+
+    <!-- jquery.js -->
+    <script src="js/jquery.js"></script>
+
+    <!-- main -->
+    <script src="js/main.js"></script>
+
+    <!-- Owl -->
+    <script src="js/jquery.min.js"></script>
+    <script src="js/owl.carousel.min.js"></script>
+    <script>
+      let owl = $(".owl-carousel");
+      $(".owl-carousel").owlCarousel({
+        loop: true,
+        margin: 15,
+        nav: false,
+        dots: false,
+        responsive: {
+          0: {
+            items: 1
+          },
+          600: {
+            items: 2
+          },
+          1000: {
+            items: 3
+          }
+        }
+      });
+      $("#owlNextBtn").click(function () {
+        owl.trigger("next.owl.carousel");
+      });
+      $("#owlPrevBtn").click(function () {
+        owl.trigger("prev.owl.carousel");
+      });
+    </script>
+
+    <!-- Sweetalert2 -->
+    <script src="js/sweetalert2.all.min.js"></script>
+
+    <!-- Tab menu -->
+    <script>
+      function openCity(evt, cityName) {
+        const tabcontent = document.getElementsByClassName("tabcontent");
+        for (let i = 0; i < tabcontent.length; i++) {
+          tabcontent[i].classList.add("hidden");
+        }
+
+        const tablinks = document.getElementsByClassName("tablinks");
+        for (let i = 0; i < tablinks.length; i++) {
+          tablinks[i].classList.remove("bg-sage-green");
+        }
+
+        document.getElementById(cityName).classList.remove("hidden");
+        evt.currentTarget.classList.add("bg-sage-green");
+      }
+
+      // Default open
+      document.getElementById("defaultOpen").click();
+    </script>
+
+    <!-- Thumbs gallery loop -->
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const mainImage = document.getElementById("mainImage");
+        const thumbnails = document.querySelectorAll(".thumbnail");
+        const prevBtn = document.getElementById("prevBtn");
+        const nextBtn = document.getElementById("nextBtn");
+
+        let currentIndex = 0;
+
+        function updateMainImage(index) {
+          thumbnails.forEach((thumb, i) => {
+            thumb.classList.toggle("opacity-100", i === index);
+            thumb.classList.toggle("opacity-60", i !== index);
+            thumb.classList.toggle("border-gray-400", i === index);
+          });
+          mainImage.src = thumbnails[index].src;
+          currentIndex = index;
+        }
+
+        // 點擊縮圖切換
+        thumbnails.forEach((thumb, i) => {
+          thumb.addEventListener("click", () => updateMainImage(i));
+        });
+
+        // 左右按鈕切換
+        prevBtn.addEventListener("click", () => {
+          currentIndex = (currentIndex - 1 + thumbnails.length) % thumbnails.length;
+          updateMainImage(currentIndex);
+        });
+
+        nextBtn.addEventListener("click", () => {
+          currentIndex = (currentIndex + 1) % thumbnails.length;
+          updateMainImage(currentIndex);
+        });
+      });
+    </script>
+
+    <!-- copy number  -->
+    <script>
+      document.getElementById("copyPhoneNumberBtn").addEventListener("click", function () {
+        const phoneNumber = this.getAttribute("data-phone-number");
+
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard
+            .writeText(phoneNumber)
+            .then(() => {
+              Swal.fire({
+                title: "成功",
+                text: "電話號碼已複製！",
+                icon: "success",
+                iconColor: "#c6d1c0",
+                confirmButtonText: "確定",
+                confirmButtonColor: "#6b8865",
+                showConfirmButton: true
+              });
+            })
+            .catch((err) => {
+              console.error("複製失敗: ", err);
+              Swal.fire({
+                title: "錯誤",
+                text: "複製失敗，請再試一次。",
+                icon: "error",
+                iconColor: "#e74c3c"
+              });
+            });
+        } else {
+          const textarea = document.createElement("textarea");
+          textarea.value = phoneNumber;
+          textarea.setAttribute("readonly", "");
+          textarea.style.position = "absolute";
+          textarea.style.left = "-9999px";
+          document.body.appendChild(textarea);
+          textarea.select();
+          try {
+            document.execCommand("copy");
+            alert("電話號碼已複製！");
+          } catch (err) {
+            console.error("複製失敗 (fallback): ", err);
+            alert("複製失敗，請手動複製。");
+          } finally {
+            document.body.removeChild(textarea);
+          }
+        }
+      });
+    </script>
+
+    <!-- Back to top -->
+    <script src="js/jquery-3.7.1.js"></script>
+    <script>
+      $(document).ready(function () {
+        $(window).scroll(function () {
+          if ($(this).scrollTop() > 100) {
+            $("#scroll").fadeIn();
+          } else {
+            $("#scroll").fadeOut();
+          }
+        });
+        $("#scroll").click(function () {
+          $("html, body").animate({scrollTop: 0}, 600);
+          return false;
+        });
+      });
+    </script>
+  </body>
+</html>
